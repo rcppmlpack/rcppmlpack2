@@ -16,7 +16,7 @@ SystemRequirements: A C++11 compiler. Version 4.6.* of g++ (as currently in
 License: LGPL (>= 2)
 Depends: R (>= 3.2.0)
 Imports: Rcpp (>= 0.12.4)
-LinkingTo: Rcpp, RcppArmadillo, BH
+LinkingTo: Rcpp, RcppArmadillo
 URL: https://github.com/thirdwing/RcppMLPACK,
      http://www.mlpack.org/
 BugReports: https://github.com/thirdwing/RcppMLPACK/issues

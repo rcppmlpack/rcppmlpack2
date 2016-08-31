@@ -12,7 +12,7 @@ before_install:
   - ./run.sh bootstrap
 
 install:
-  - ./run.sh install_aptget libmlpack-dev libboost-program-options-dev libboost-serialization-dev r-cran-rcpp r-cran-rcpparmadillo r-cran-bh 
+  - ./run.sh install_aptget libmlpack-dev libboost-all-dev r-cran-rcpp r-cran-rcpparmadillo 
 
 script:
   - ./run.sh run_tests
