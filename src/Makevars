@@ -1,68 +1,7 @@
 CXX_STD = CXX11
 
-MLPACKOBJECTS=\
-./mlpack/methods/pca/pca.o \
-./mlpack/methods/mvu/mvu.o \
-./mlpack/methods/det/dtree.o \
-./mlpack/methods/det/dt_utils.o \
-./mlpack/methods/linear_regression/linear_regression.o \
-./mlpack/methods/radical/radical.o \
-./mlpack/methods/neighbor_search/unmap.o \
-./mlpack/methods/neighbor_search/sort_policies/furthest_neighbor_sort.o \
-./mlpack/methods/neighbor_search/sort_policies/nearest_neighbor_sort.o \
-./mlpack/methods/lars/lars.o \
-./mlpack/methods/logistic_regression/logistic_regression_function.o \
-./mlpack/methods/regularized_svd/regularized_svd_function.o \
-./mlpack/methods/sparse_autoencoder/sparse_autoencoder_function.o \
-./mlpack/core/math/lin_alg.o \
-./mlpack/core/math/random.o \
-./mlpack/core/kernels/epanechnikov_kernel.o \
-./mlpack/core/kernels/pspectrum_string_kernel.o \
-./mlpack/core/optimizers/lbfgs/test_functions.o \
-./mlpack/core/optimizers/aug_lagrangian/aug_lagrangian_test_functions.o \
-./mlpack/core/optimizers/sgd/test_function.o \
-./mlpack/core/optimizers/lrsdp/lrsdp_function.o \
-./mlpack/core/optimizers/lrsdp/lrsdp.o \
-./mlpack/core/dists/gaussian_distribution.o \
-./mlpack/core/dists/discrete_distribution.o \
-./mlpack/core/dists/laplace_distribution.o \
-./mlpack/core/tree/mrkd_statistic.o \
-./mlpack/core/tree/cosine_tree/cosine_tree.o \
-./mlpack/core/util/string_util.o
+PKG_CXXFLAGS=-I. -I../inst/include
+PKG_LIBS= -lmlpack $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
 
-
-PKGOBJECTS = RcppExports.o kmeans.o
-
-OBJECTS= $(MLPACKOBJECTS) $(PKGOBJECTS)
-
-PKG_CXXFLAGS=-I. 
-PKG_LIBS= $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
-
-all: $(SHLIB) userLibrary 
-
-## we place it inside the inst/ directory so that it gets installed by the package
-USERDIR =	../inst/lib
-
-USERLIB	=	libRcppMLPACK$(DYLIB_EXT)
-USERLIBST =	libRcppMLPACK.a
-
-userLibrary: 	$(USERLIB) $(USERLIBST)
-		-@if test ! -e $(USERDIR)$(R_ARCH); then mkdir -p $(USERDIR)$(R_ARCH); fi
-		cp $(USERLIB) $(USERDIR)$(R_ARCH)
-		cp $(USERLIBST) $(USERDIR)$(R_ARCH)
-		rm $(USERLIB) $(USERLIBST)
-
-$(USERLIB): 	$(OBJECTS)
-		$(SHLIB_CXXLD) -o $(USERLIB) $(OBJECTS) $(SHLIB_CXXLDFLAGS) $(ALL_LIBS)
-		@if test -e "/usr/bin/install_name_tool"; then /usr/bin/install_name_tool -id $(R_PACKAGE_DIR)/lib$(R_ARCH)/$(USERLIB) $(USERLIB); fi
-
-$(USERLIBST): 	$(OBJECTS)
-		$(AR) qc $(USERLIBST) $(OBJECTS)
-		@if test -n "$(RANLIB)"; then $(RANLIB) $(USERLIBST); fi
-
-.PHONY: 	all clean userLibrary 
-
-clean:
-		rm -f $(OBJECTS) $(SHLIB) $(USERLIB) $(USERLIBST)
 
 
