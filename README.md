@@ -1,9 +1,20 @@
-RcppMLPACK
-==========
+## RcppMLPACK2 [![Build Status](https://travis-ci.org/eddelbuettel/rcppmlpack2.svg)](https://travis-ci.org/eddelbuettel/rcppmlpack2)
 
-[![Build Status](https://travis-ci.org/thirdwing/RcppMLPACK.svg?branch=master)](https://travis-ci.org/thirdwing/RcppMLPACK)
+### Experimental
 
-[MLPACK](http://www.mlpack.org/) is a C++ machine learning library with emphasis on scalability, speed, and ease-of-use. Its aim is to make machine learning possible for novice users by means of a simple, consistent API, while simultaneously exploiting C++ language features to provide maximum performance and maximum flexibility for expert users. MLPACK outperforms competing machine learning libraries by large margins; see the [BigLearning workshop paper](http://www.mlpack.org/papers/mlpack2011.pdf) for details. 
+This is fork / experiment off [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s excellent [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package.
+
+We are trying something lighter-weight here by using the _external_ system
+libraries for [MLPACK](http://www.mlpack.org/) instead of bundling it.
+
+### What is MLPACK?
+
+[MLPACK](http://www.mlpack.org/) is a C++ machine learning library with emphasis on
+scalability, speed, and ease-of-use. Its aim is to make machine learning possible for
+novice users by means of a simple, consistent API, while simultaneously exploiting C++
+language features to provide maximum performance and maximum flexibility for expert
+users. MLPACK outperforms competing machine learning libraries by large margins; see the
+[BigLearning workshop paper](http://www.mlpack.org/papers/mlpack2011.pdf) for details.
 
 The algorithms implemented in MLPACK:
 
@@ -21,14 +32,20 @@ The algorithms implemented in MLPACK:
 * Tree-based k-nearest-neighbors search and classiﬁer
 * Tree-based range search
 
-The RcppMLPACK package includes the source code from the MLPACK library. Thus users do not need to install MLPACK itself in order to use RcppMLPACK. 
- 
-This MLPACK integration heavily relies on [Rcpp](http://www.rcpp.org) and RcppArmadillo packages. 
+The official [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package includes the
+source code from the MLPACK library (version 1.*). Thus users do not need to install
+MLPACK itself in order to use RcppMLPACK.
 
-The version number of MLPACK is used as the version number of this package. 
+This package, however, uses the external [MLPACK](http://www.mlpack.org/) library (version
+2.* or later), so see its documentation for installation.  Or on Debian/Ubuntu do `sudo
+apt-get install libmlpack-dev`.
 
-Testing and bug reports are deeply welcome.
+### Authors
 
-You can find examples in the [wiki page](https://github.com/thirdwing/RcppMLPACK/wiki). You can always find me by email (qkou@umail.iu.edu) if you have any questions.
+[Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7) for the main
+[RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package.
 
-[Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)
+Dirk Eddelbuettel for this experiment.
+
+
+
