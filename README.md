@@ -2,9 +2,9 @@
 
 ### Experimental
 
-This is fork / experiment off [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s excellent [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package.
+This is fork / experimental version derived off [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s excellent [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package.
 
-We are trying something lighter-weight here by using the _external_ system
+We are trying to build something lighter-weight here by using the _external_ system
 libraries for [MLPACK](http://www.mlpack.org/) instead of bundling it.
 
 ### What is MLPACK?
