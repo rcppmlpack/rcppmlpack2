@@ -26,6 +26,8 @@
 // needed for sugar wrapping etc 
 
 #include <RcppArmadilloConfig.h>
+#undef ARMA_EXTRA_MAT_PROTO
+#undef ARMA_EXTRA_MAT_MEAT
 #include <RcppArmadilloWrap.h>
 #include <RcppArmadilloAs.h>
 #include <RcppArmadilloSugar.h>
