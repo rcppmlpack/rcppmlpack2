@@ -17,4 +17,19 @@
 #define ARMA_DEFAULT_OSTREAM Rcpp::Rcout
 #endif
 
+#include <Rcpp.h>
+
+#include <mlpack/core.hpp>
+
+// instead of including RcppArmadillo.h -- which re-includes parts
+// of Armadillo already brought in by mlpack, we just include pieces
+// needed for sugar wrapping etc 
+
+#include <RcppArmadilloConfig.h>
+#include <RcppArmadilloWrap.h>
+#include <RcppArmadilloAs.h>
+#include <RcppArmadilloSugar.h>
+
+
+
 #endif

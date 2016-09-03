@@ -1,11 +1,8 @@
-#include <Rcpp.h>			// header hierarchy to be sorted out
-#include <RcppArmadilloConfig.h> 	// header hierarchy to be sorted out
-#include <RcppMLPACK.h>			// header hierarchy to be sorted out
 
-#include <mlpack/core.hpp>
-#include <mlpack/methods/kmeans/kmeans.hpp>
+#include <RcppMLPACK.h>				// MLPACK, Rcpp and RcppArmadillo
 
-using namespace mlpack::kmeans;
+#include <mlpack/methods/kmeans/kmeans.hpp> 	// particular algorithm used here
+
 
 // [[Rcpp::export]]
 Rcpp::List kmeans(const arma::mat& data, const int& clusters) {
@@ -13,7 +10,7 @@ Rcpp::List kmeans(const arma::mat& data, const int& clusters) {
     arma::Row<size_t> assignments;
 
     // Initialize with the default arguments.
-    KMeans<> k;
+    mlpack::kmeans::KMeans<> k;
 
     k.Cluster(data, clusters, assignments); 
 
