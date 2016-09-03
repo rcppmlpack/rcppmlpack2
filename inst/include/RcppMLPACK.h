@@ -20,14 +20,14 @@
 #include <Rcpp.h>
 
 #include <mlpack/core.hpp>
+#undef ARMA_EXTRA_MAT_PROTO
+#undef ARMA_EXTRA_MAT_MEAT
 
 // instead of including RcppArmadillo.h -- which re-includes parts
 // of Armadillo already brought in by mlpack, we just include pieces
 // needed for sugar wrapping etc 
 
 #include <RcppArmadilloConfig.h>
-#undef ARMA_EXTRA_MAT_PROTO
-#undef ARMA_EXTRA_MAT_MEAT
 #include <RcppArmadilloWrap.h>
 #include <RcppArmadilloAs.h>
 #include <RcppArmadilloSugar.h>
