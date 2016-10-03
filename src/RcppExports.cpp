@@ -7,15 +7,15 @@
 
 using namespace Rcpp;
 
-// coverTreeNeighboir
-List coverTreeNeighboir(const arma::mat& dataset, const int k);
-RcppExport SEXP RcppMLPACK_coverTreeNeighboir(SEXP datasetSEXP, SEXP kSEXP) {
+// coverTreeNeighbor
+List coverTreeNeighbor(const arma::mat& dataset, const int k);
+RcppExport SEXP RcppMLPACK_coverTreeNeighbor(SEXP datasetSEXP, SEXP kSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type dataset(datasetSEXP);
     Rcpp::traits::input_parameter< const int >::type k(kSEXP);
-    rcpp_result_gen = Rcpp::wrap(coverTreeNeighboir(dataset, k));
+    rcpp_result_gen = Rcpp::wrap(coverTreeNeighbor(dataset, k));
     return rcpp_result_gen;
 END_RCPP
 }

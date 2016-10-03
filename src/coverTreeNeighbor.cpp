@@ -12,7 +12,7 @@ using namespace mlpack::metric;
 using namespace mlpack::tree;
 
 // [[Rcpp::export]]
-List coverTreeNeighboir(const arma::mat& dataset, const int k) {
+List coverTreeNeighbor(const arma::mat& dataset, const int k) {
     // using a test from MLPACK 2.0.* in file src/mlpack/tests/kfn_test.cpp
 
     typedef CoverTree<LMetric<2, true>, NeighborSearchStat<FurthestNeighborSort>,
