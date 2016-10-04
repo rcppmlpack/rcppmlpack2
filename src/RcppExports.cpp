@@ -32,7 +32,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // naive_bayes
-Rcpp::List naive_bayes(const arma::mat& train, const arma::mat& test, const arma::Row<size_t>& labels, const int& classes);
+arma::Row<size_t> naive_bayes(const arma::mat& train, const arma::mat& test, const arma::Row<size_t>& labels, const int& classes);
 RcppExport SEXP RcppMLPACK_naive_bayes(SEXP trainSEXP, SEXP testSEXP, SEXP labelsSEXP, SEXP classesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
