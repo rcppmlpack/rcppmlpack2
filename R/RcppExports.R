@@ -9,7 +9,7 @@ kmeans <- function(data, clusters) {
     .Call('RcppMLPACK_kmeans', PACKAGE = 'RcppMLPACK', data, clusters)
 }
 
-naive_bayes <- function(train, test, labels, classes) {
-    .Call('RcppMLPACK_naive_bayes', PACKAGE = 'RcppMLPACK', train, test, labels, classes)
+naiveBayesClassifier <- function(train, test, labels, classes) {
+    .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, test, labels, classes)
 }
 
