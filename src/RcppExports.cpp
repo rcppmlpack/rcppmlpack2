@@ -31,3 +31,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// naive_bayes
+arma::irowvec naive_bayes(const arma::mat& train, const arma::mat& test, const arma::Row<size_t>& labels, const int& classes);
+RcppExport SEXP RcppMLPACK_naive_bayes(SEXP trainSEXP, SEXP testSEXP, SEXP labelsSEXP, SEXP classesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type train(trainSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type test(testSEXP);
+    Rcpp::traits::input_parameter< const arma::Row<size_t>& >::type labels(labelsSEXP);
+    Rcpp::traits::input_parameter< const int& >::type classes(classesSEXP);
+    rcpp_result_gen = Rcpp::wrap(naive_bayes(train, test, labels, classes));
+    return rcpp_result_gen;
+END_RCPP
+}
