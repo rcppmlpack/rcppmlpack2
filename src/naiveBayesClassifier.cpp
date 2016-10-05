@@ -15,15 +15,15 @@ arma::irowvec naiveBayesClassifier(const arma::mat& train,
     arma::Row<size_t> labelsur, resultsur;
 
     // TODO: check that all values are non-negative
-    labels_ = arma::conv_to<arma::Row<size_t>>::from(labels);
+    labelsur = arma::conv_to<arma::Row<size_t>>::from(labels);
 
     // Initialize with the default arguments.
     // TODO: support more arguments>
-    mlpack::naive_bayes::NaiveBayesClassifier<> nbc(train, labels_, classes);
+    mlpack::naive_bayes::NaiveBayesClassifier<> nbc(train, labelsur, classes);
     
-    nbc.Classify(test, results_);
+    nbc.Classify(test, resultsur);
     
-    arma::irowvec results = arma::conv_to<arma::irowvec>::from(results_);
+    arma::irowvec results = arma::conv_to<arma::irowvec>::from(resultsur);
     
     return results;
 }
