@@ -5,14 +5,16 @@
 #include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp> 	// particular algorithm used here
 
 // [[Rcpp::export]]
-arma::Row<size_t> naive_bayes(const arma::mat& train, const arma::mat& test, const arma::Row<size_t>& labels, const int& classes) {
+arma::irowvec naive_bayes(const arma::mat& train, const arma::mat& test, const arma::Row<size_t>& labels, const int& classes) {
     
-    arma::Row<size_t> results;
+    arma::Row<size_t> mlp_results;
 
     // Initialize with the default arguments.
     mlpack::naive_bayes::NaiveBayesClassifier<> nbc(train, labels, classes);
     
-    nbc.Classify(test, results);
-
+    nbc.Classify(test, mlp_results);
+    
+    arma::irowvec results = arma::conv_to<arma::irowvec>::from(mlp_results);
+    
     return results;
 }
