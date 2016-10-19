@@ -9,6 +9,14 @@ kmeans <- function(data, clusters) {
     .Call('RcppMLPACK_kmeans', PACKAGE = 'RcppMLPACK', data, clusters)
 }
 
+logisticRegression <- function(train, test, labels) {
+    .Call('RcppMLPACK_logisticRegression', PACKAGE = 'RcppMLPACK', train, test, labels)
+}
+
+logisticRegressionParameters <- function(train, labels) {
+    .Call('RcppMLPACK_logisticRegressionParameters', PACKAGE = 'RcppMLPACK', train, labels)
+}
+
 naiveBayesClassifier <- function(train, test, labels, classes) {
     .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, test, labels, classes)
 }
