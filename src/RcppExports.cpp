@@ -31,6 +31,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// logisticRegression
+Rcpp::List logisticRegression(const arma::mat& train, const arma::irowvec& labels, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
+RcppExport SEXP RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP labelsSEXP, SEXP testSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::mat& >::type train(trainSEXP);
+    Rcpp::traits::input_parameter< const arma::irowvec& >::type labels(labelsSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::Nullable<Rcpp::NumericMatrix>& >::type test(testSEXP);
+    rcpp_result_gen = Rcpp::wrap(logisticRegression(train, labels, test));
+    return rcpp_result_gen;
+END_RCPP
+}
 // naiveBayesClassifier
 arma::irowvec naiveBayesClassifier(const arma::mat& train, const arma::mat& test, const arma::irowvec& labels, const int& classes);
 RcppExport SEXP RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP testSEXP, SEXP labelsSEXP, SEXP classesSEXP) {
