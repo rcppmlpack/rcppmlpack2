@@ -32,27 +32,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // logisticRegression
-arma::irowvec logisticRegression(const arma::mat& train, const arma::mat& test, const arma::irowvec& labels);
-RcppExport SEXP RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP testSEXP, SEXP labelsSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::mat& >::type train(trainSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type test(testSEXP);
-    Rcpp::traits::input_parameter< const arma::irowvec& >::type labels(labelsSEXP);
-    rcpp_result_gen = Rcpp::wrap(logisticRegression(train, test, labels));
-    return rcpp_result_gen;
-END_RCPP
-}
-// logisticRegressionParameters
-arma::vec logisticRegressionParameters(const arma::mat& train, const arma::irowvec& labels);
-RcppExport SEXP RcppMLPACK_logisticRegressionParameters(SEXP trainSEXP, SEXP labelsSEXP) {
+Rcpp::List logisticRegression(const arma::mat& train, const arma::irowvec& labels, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
+RcppExport SEXP RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP labelsSEXP, SEXP testSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type train(trainSEXP);
     Rcpp::traits::input_parameter< const arma::irowvec& >::type labels(labelsSEXP);
-    rcpp_result_gen = Rcpp::wrap(logisticRegressionParameters(train, labels));
+    Rcpp::traits::input_parameter< const Rcpp::Nullable<Rcpp::NumericMatrix>& >::type test(testSEXP);
+    rcpp_result_gen = Rcpp::wrap(logisticRegression(train, labels, test));
     return rcpp_result_gen;
 END_RCPP
 }
