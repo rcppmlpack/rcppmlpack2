@@ -12,7 +12,7 @@ before_install:
 
 install:
   - ./run.sh install_aptget libboost-all-dev libboost-program-options-dev libboost-serialization-dev libarmadillo-dev r-cran-rcpp r-cran-rcpparmadillo 
-  - ./run.sh install_dpkgcurl http://dirk.eddelbuettel.com/deb/trusty/libmlpack2_2.1.0-1.trusty.0_amd64.deb http://dirk.eddelbuettel.com/deb/trusty/libmlpack-dev_2.1.0-1.trusty.0_amd64.deb
+  - ./run.sh install_dpkgcurl http://dirk.eddelbuettel.com/deb/trusty/libmlpack2_2.1.0-1.trusty.1_amd64.deb http://dirk.eddelbuettel.com/deb/trusty/libmlpack-dev_2.1.0-1.trusty.1_amd64.deb
   
 script:
   - ./run.sh run_tests
