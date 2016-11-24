@@ -51,15 +51,14 @@ as these packages are not yet in testing).
 
 #### Ubuntu
 
-Package for trusty (14.04) and xenial (16.04) [are available](http://dirk.eddelbuettel.com/deb/), and used by the
-[Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml). (The reason these are
-downloaded directly is am inability to build these packages on Launchpad. One day we may manage to not have `g++` die
-for lack of resources at Launchpad. Docker on our workstation worked just fine.)
+Package for trusty (14.04) and xenial (16.04)
+[are available in my PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and used by the
+[Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml). 
 
 #### OS X / Brew
 
-We do not use this platform so we do not know. There may be a solution as well. If you know, tell us and we update this
-section.
+A [pull request has been submitted and merged](https://github.com/Homebrew/homebrew-science/pull/4637) to
+update the version of MLPACK in brew.
 
 #### Others
 
