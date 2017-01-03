@@ -1,0 +1,5 @@
+2017-01-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* flags.R (RcppMLPACK.system.file): Made robust to empty string
+	* inline.R: Simplified
+

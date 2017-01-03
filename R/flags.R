@@ -1,5 +1,7 @@
-RcppMLPACK.system.file <- function(...){
-    tools::file_path_as_absolute( base::system.file( ..., package = "RcppMLPACK" ) )
+RcppMLPACK.system.file <- function(...) {
+    path <- base::system.file(..., package = "RcppMLPACK")
+    if (path != "") path <- tools::file_path_as_absolute(path)
+    path
 }
 
 staticLinking <- function() {
