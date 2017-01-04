@@ -1,3 +1,9 @@
+2017-01-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/inline.R.in: Use configure to determine libraries
+	* configure.ac: Also modify R/inline.R.in
+	* cleanup: Remove R/inline.R
+
 2017-01-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* flags.R (RcppMLPACK.system.file): Made robust to empty string

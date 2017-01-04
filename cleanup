@@ -2,4 +2,4 @@
 rm -f src/*.o src/*.so src/*.dylib src/*~ *~
 
 ## autoconf/configure leftovers
-rm -rf autom4te.cache/ config.log config.status src/Makevars
+rm -rf autom4te.cache/ config.log config.status src/Makevars R/inline.R

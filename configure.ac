@@ -44,6 +44,7 @@ fi
 AC_SUBST(MLPACK_CFLAGS)
 AC_SUBST(MLPACK_LIBS)
 AC_OUTPUT(src/Makevars)
+AC_OUTPUT(R/inline.R)
 
 
 echo "
