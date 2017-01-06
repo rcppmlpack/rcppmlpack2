@@ -9,3 +9,52 @@
 	* flags.R (RcppMLPACK.system.file): Made robust to empty string
 	* inline.R: Simplified
 
+2016-11-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Use PPA for libmlpack* which now builds
+
+2016-11-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* configure.ac: Now using pkg-config with MLPACK 2.1.0
+	* .travis.yml: Use curl against local copies of libmlpack*
+	* README.md: Edited
+
+2016-10-19  Matthew Henderson  <matthew.james.henderson@gmail.com>
+
+	* src/logisticRegression.cpp: New example
+
+2016-10-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/naive_bayes.cpp: Minor correction
+	* src/naiveBayesClassifier.cpp: Renamed
+
+2016-10-04  Matthew Henderson  <matthew.james.henderson@gmail.com>
+
+	* src/naive_bayes.cpp: New example
+
+2016-10-03  Matthew Henderson  <matthew.james.henderson@gmail.com>
+
+	* src/coverTreeNeighbor.cpp: Spelling correction
+
+2016-09-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/RcppMLPACK.h: Simplified
+	* src/kmeans.cpp: Simpler include
+
+	* src/coverTreeNeighbor.cpp: New example
+
+	* configure.ac: Rewritten for external MLPACK
+	* configure: Idem
+	* m4/: Added with two helper snippets
+
+	* DESCRIPTION: Updated to match MLPACK description
+
+2016-08-31  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/RcppMLPACK.h: Use external MLPACK
+	* src/Makevars: Idem
+
+	* .travis.yml: Updated to use external MLPACK
+
+	* inst/include/mlpack: Delete embedded MLPACK sources
+	* src/mlpack: Idem
