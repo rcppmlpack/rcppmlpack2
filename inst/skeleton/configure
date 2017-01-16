@@ -1,0 +1,9 @@
+#!/bin/sh
+
+MLPACK_CFLAGS=`${R_HOME}/bin/Rscript -e "RcppMLPACK:::CFlags()"`
+MLPACK_LIBS=`${R_HOME}/bin/Rscript -e "RcppMLPACK:::LdFlags()"`
+
+sed -e "s|@MLPACK_LIBS@|${MLPACK_LIBS}|" \
+    -e "s|@MLPACK_CFLAGS@|${MLPACK_CFLAGS}|" \
+    src/Makevars.in > src/Makevars
+

@@ -1,0 +1,6 @@
+MLPACK_CFLAGS = @MLPACK_CFLAGS@
+MLPACK_LIBS   = @MLPACK_LIBS@
+
+# combine with standard arguments for R
+PKG_CPPFLAGS = -W $(MLPACK_CFLAGS) -I../inst/include
+PKG_LIBS += $(MLPACK_LIBS) 
