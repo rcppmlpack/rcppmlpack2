@@ -2,14 +2,13 @@ Package: RcppMLPACK
 Type: Package
 Title: Rcpp Integration for MLPACK Library
 Version: 2.0.2-1
-Date: 2016-09-03
+Date: 2017-01-16
 Author: Qiang Kou, Dirk Eddelbuettel
 Maintainer: Qiang Kou <qkou@umail.iu.edu>
 Description: MLPACK is an intuitive, fast, scalable C++ machine learning
  library, meant to be a machine learning analog to LAPACK.
 OS_type: unix
-SystemRequirements: A C++11 compiler. Version 4.6.* of g++ (as currently in
- Rtools) is insufficient; versions 4.8.*, 4.9.* or later will be fine.
+SystemRequirements: A C++11 compiler. Versions 4.8.*, 4.9.* or later of GCC will be fine. 
 License: GPL (>= 2)
 Depends: R (>= 3.2.0)
 Imports: Rcpp (>= 0.12.4)

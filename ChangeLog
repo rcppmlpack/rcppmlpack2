@@ -1,3 +1,16 @@
+2017-01-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, SystemRequirements): Updated and shortened
+
+	* R/inline.R.in: Rewritten / expanded for better plugin support
+	* inst/skeleton/configure: New file to create src/Makevars
+	* inst/skeleton/configure.win: Idem
+	* inst/skeleton/Makevars.in: Simplified, now filled from configure
+	* inst/skeleton/Makevars.old: Old version
+	* inst/skeleton/Makevars.win.old: Idem
+
+	* inst/examples/kmeansViaPlugin.cpp: kmeans via sourceCpp()
+
 2017-01-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/inline.R.in: Use configure to determine libraries

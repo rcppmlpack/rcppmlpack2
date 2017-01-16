@@ -25,7 +25,7 @@ AC_PROG_PKGCONFIG
 # The following line _should_ work but bombs on Ubuntu 16.04
 # PKG_CHECK_MODULES([MLPACK], [mlpack = 2.1.0])
 
-# So do it manually
+## So do it manually
 if test x"${PKGCONFIG}" == x"yes" && pkg-config --atleast-version=2.1.0 mlpack; then
    MLPACK_CFLAGS=`pkg-config --cflags mlpack`
    MLPACK_LIBS=`pkg-config --libs mlpack`
