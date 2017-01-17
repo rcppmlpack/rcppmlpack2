@@ -1,3 +1,10 @@
+2017-01-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (SystemRequirements): Detailed system requirements
+
+	* inst/skeleton/kmeans.cpp: Edited comments and whitespace
+	* src/kmeans.cpp: Idem
+
 2017-01-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Date, SystemRequirements): Updated and shortened
@@ -10,6 +17,8 @@
 	* inst/skeleton/Makevars.win.old: Idem
 
 	* inst/examples/kmeansViaPlugin.cpp: kmeans via sourceCpp()
+
+	* inst/skeleton/kmeans.cpp: Updated as well
 
 2017-01-04  Dirk Eddelbuettel  <edd@debian.org>
 

@@ -1,18 +1,17 @@
-#include "RcppMLPACK.h"
 
-using namespace mlpack::kmeans;
-using namespace Rcpp;
+#include <RcppMLPACK.h>				// declares MLPACK, Rcpp and RcppArmadillo
+
+#include <mlpack/methods/kmeans/kmeans.hpp> 	// particular algorithm used here
+
+// RcppMLPACK setup and C++11 use are enabled via src/Makevars{,win}
 
 // [[Rcpp::export]]
-List mlkmeans(const arma::mat& data, const int& clusters) {
-    
-    arma::Col<size_t> assignments;
+Rcpp::List mlkmeans(const arma::mat& data, const int& clusters) {
 
-	// Initialize with the default arguments.
-	KMeans<> k;
+    arma::Row<size_t> assignments; 		// to store results
+    mlpack::kmeans::KMeans<> k;    		// initialize with the default arguments.
+    k.Cluster(data, clusters, assignments);     // make call, filling 'assignments'
 
-	k.Cluster(data, clusters, assignments); 
-
-    return List::create(_["clusters"]	= clusters,
-                        _["result"]		= assignments);
+    return Rcpp::List::create(Rcpp::Named("clusters") = clusters,
+                              Rcpp::Named("result")   = assignments);
 }
