@@ -1,51 +1,79 @@
 ## RcppMLPACK2 [![Build Status](https://travis-ci.org/eddelbuettel/rcppmlpack2.svg)](https://travis-ci.org/eddelbuettel/rcppmlpack2) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) 
 
 
-Rcpp bindings for MLPACK 2.*
+Rcpp bindings for mlpack 2.*
 
 ### Experimental
 
 This is a more experimental version derived off [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s
 excellent [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package which is also on CRAN as
-[RcppMLPACK](https://cran.r-project.org/package=RcppMLPACK).  That version is based on MLPACK 1.0.6
+[RcppMLPACK](https://cran.r-project.org/package=RcppMLPACK).  That version is based on mlpack 1.0.6
 and embeds it, ensuring builds on all platforms CRAN cares about.
 
-Here, we are trying to build something lighter-weight and more current. We will use _external_ (system) libraries for
-[MLPACK](http://www.mlpack.org/) instead of bundling them inside the R package. See below for more detailed installation notes.
+Here, we are trying to build something lighter-weight and more current. We will use _external_ (system)
+libraries for [mlpack](http://www.mlpack.org/) instead of bundling them inside the R package. See below for
+more detailed installation notes.
 
-### What is MLPACK?
+### What is mlpack?
 
-[MLPACK](http://www.mlpack.org/) is a C++ machine learning library with emphasis on
-scalability, speed, and ease-of-use. Its aim is to make machine learning possible for
-novice users by means of a simple, consistent API, while simultaneously exploiting C++
-language features to provide maximum performance and maximum flexibility for expert
-users. MLPACK outperforms competing machine learning libraries by large margins; see the
-[BigLearning workshop paper](http://www.mlpack.org/papers/mlpack2011.pdf) for details.
+Quoting from the [main page](http://www.mlpack.org/index.html):
 
-The algorithms implemented in MLPACK:
+> [mlpack](http://www.mlpack.org/) is a scalable machine learning library, written in C++,
+> that aims to provide fast, extensible implementations of cutting-edge machine learning algorithms.
+> [mlpack](http://www.mlpack.org/) provides these algorithms as simple command-line programs and C++ classes
+> which can then be integrated into larger-scale machine learning solutions. 
 
-* Fast Hierarchical Clustering (Euclidean Minimum Spanning Trees)
-* Gaussian Mixture Models (trained via EM)
-* Hidden Markov Models (training, prediction, and classiﬁcation)
-* Kernel Principal Components Analysis
-* K-Means clustering
-* LARS/Lasso Regression
-* Least-squares Linear Regression
-* Maximum Variance Unfolding (using LRSDP)
-* Naive Bayes Classiﬁer
-* Neighborhood Components Analysis (using LRSDP)
-* RADICAL (Robust, Accurate, Direct ICA aLgorithm)
-* Tree-based k-nearest-neighbors search and classiﬁer
-* Tree-based range search
+and the [about page](http://www.mlpack.org/about.html):
+
+> [mlpack](http://www.mlpack.org/) is a C++ machine learning library with emphasis on scalability, speed,
+> and ease-of-use. Its aim is to make machine learning possible for novice users by means of a simple,
+> consistent API, while simultaneously exploiting C++ language features to provide maximum performance
+> and maximum flexibility for expert users. This is done by providing a set of command-line executables
+> which can be used as black boxes, and a modular C++ API for expert users and researchers to easily
+> make changes to the internals of the algorithms.
+>
+> As a result of this approach, mlpack outperforms competing machine learning libraries by large margins; see
+> the [BigLearning workshop paper](http://www.mlpack.org/papers/mlpack2011.pdf) and the
+> [benchmarks](http://www.mlpack.org/benchmark.html) for details. 
+
+An alphabetical list of currently implemented methods in [mlpack](http://www.mlpack.org/) is shown below,
+see [here](http://www.mlpack.org/about.html) for links to papers, API docucmentation, tutorials and other
+references: 
+
+* Collaborative filtering (with many decomposition techniques)
+* Decision stumps (one-level decision trees)
+* Density estimation trees
+* Euclidean minimum spanning tree calculation
+* Gaussian mixture models
+* Hidden Markov models
+* Kernel Principal Components Analysis (optionally with sampling)
+* k-Means clustering (with several accelerated algorithms)
+* Least-angle regression (LARS/LASSO)
+* Linear regression (simple least-squares)
+* Local coordinate coding
+* Locality-sensitive hashing for approximate nearest neighbor search
+* Logistic regression
+* Max-kernel search
+* Naive Bayes classifier
+* Nearest neighbor search with dual-tree algorithms
+* Neighborhood components analysis
+* Non-negative matrix factorization
+* Perceptrons
+* Principal components analysis (PCA)
+* RADICAL (independent components analysis)
+* Range search with dual-tree algorithms
+* Rank-approximate nearest neighbor search
+* Sparse coding with dictionary learning
+
 
 ### Installation
 
 As mentioned above, the official [RcppMLPACK CRAN apckage](https://cran.r-project.org/package=RcppMLPACK)
 with its [GitHub repo](https://github.com/thirdwing/RcppMLPACK)  includes the
-source code from the MLPACK library (version 1.*). Thus users do not need to install
-MLPACK itself in order to use RcppMLPACK.
+source code from the mlpack library (version 1.*). Thus users do not need to install
+mlpack itself in order to use RcppMLPACK.
 
-This package, however, uses the external [MLPACK](http://www.mlpack.org/) library (version
+This package, however, uses the external [mlpack](http://www.mlpack.org/) library (version
 2.* or later), so below for detailed instructions.
 
 #### Debian
@@ -66,7 +94,7 @@ Ubuntu 17.04 and later.
 
 James Balamuta has kindly prepared a 
 [pull request which has been submitted and merged](https://github.com/Homebrew/homebrew-science/pull/4637) to
-update the version of MLPACK in brew.  However, I hear that there are issue between the brew compiler stack 
+update the version of mlpack in brew.  However, I hear that there are issue between the brew compiler stack 
 and what is used for R.  So this may be in flux.
 
 
@@ -78,7 +106,7 @@ You may have to install from source.  Let me know how it goes.
 
 The `R CMD check` command may complain about `std::cout` when using mlpack 2.1.0. Use
 [this one-line change](https://github.com/eddelbuettel/mlpack/commit/6dd600825395e1bdb0455ad836daefc49b5ca66f) which
-is also part of the  MLPACK 2.1.1 release.
+is also part of the mlpack 2.1.1 release.
 
 ### Authors
 
