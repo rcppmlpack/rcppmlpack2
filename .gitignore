@@ -13,3 +13,4 @@
 
 # RUnit generated stuff
 inst/unitTests/report*
+.Rproj.user
