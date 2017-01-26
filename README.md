@@ -37,7 +37,7 @@ and the [about page](http://www.mlpack.org/about.html):
 > [benchmarks](http://www.mlpack.org/benchmark.html) for details. 
 
 An alphabetical list of currently implemented methods in [mlpack](http://www.mlpack.org/) is shown below,
-see [here](http://www.mlpack.org/about.html) for links to papers, API docucmentation, tutorials and other
+see [here](http://www.mlpack.org/about.html) for links to papers, API documentation, tutorials and other
 references: 
 
 * Collaborative filtering (with many decomposition techniques)
@@ -68,7 +68,7 @@ references:
 
 ### Installation
 
-As mentioned above, the official [RcppMLPACK CRAN apckage](https://cran.r-project.org/package=RcppMLPACK)
+As mentioned above, the official [RcppMLPACK CRAN package](https://cran.r-project.org/package=RcppMLPACK)
 with its [GitHub repo](https://github.com/thirdwing/RcppMLPACK)  includes the
 source code from the mlpack library (version 1.*). Thus users do not need to install
 mlpack itself in order to use RcppMLPACK.
@@ -84,7 +84,7 @@ _sid_ (aka 'unstable') or _stretch_ (aka 'testing') as these packages are not ye
 
 #### Ubuntu
 
-Inofficial packages for trusty (14.04) and xenial (16.04)
+Unofficial packages for trusty (14.04) and xenial (16.04)
 [are available in my PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and used by the
 [Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml).  They are based
 on Barak's Debian packages.  Via the standard Debian-to-Ubuntu package transition, these should also appear in 
