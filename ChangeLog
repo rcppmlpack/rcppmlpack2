@@ -1,3 +1,14 @@
+2017-01-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Several edits and updates
+
+	* DESCRIPTION: Idem
+
+	* rcppmlpack2.Proj: Added for RStudio use
+	* .gitignore: Updated for RStudio files
+
+	* .travis.yml: Use https for curl download
+
 2017-01-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (SystemRequirements): Detailed system requirements
