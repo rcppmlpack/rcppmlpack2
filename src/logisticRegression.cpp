@@ -25,13 +25,13 @@ Rcpp::List logisticRegression(const arma::mat& train,
     Rcpp::List return_val;
     
     if (test.isNotNull()) {
-      arma::mat test2 = Rcpp::as<arma::mat>(test);
-      lrc.Classify(test2, resultsur);
-      arma::vec results = arma::conv_to<arma::vec>::from(resultsur);
-      return_val = Rcpp::List::create(Rcpp::Named("parameters") = parameters,
-                                      Rcpp::Named("results") = results);
+        arma::mat test2 = Rcpp::as<arma::mat>(test);
+        lrc.Classify(test2, resultsur);
+        arma::vec results = arma::conv_to<arma::vec>::from(resultsur);
+        return_val = Rcpp::List::create(Rcpp::Named("parameters") = parameters,
+                                        Rcpp::Named("results") = results);
     } else {
-      return_val = Rcpp::List::create(Rcpp::Named("parameters") = parameters);
+        return_val = Rcpp::List::create(Rcpp::Named("parameters") = parameters);
     }
 
     return return_val;
