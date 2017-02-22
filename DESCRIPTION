@@ -17,4 +17,4 @@ Imports: Rcpp (>= 0.12.4)
 LinkingTo: Rcpp, RcppArmadillo
 URL: https://github.com/thirdwing/RcppMLPACK, http://www.mlpack.org/
 BugReports: https://github.com/thirdwing/RcppMLPACK/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

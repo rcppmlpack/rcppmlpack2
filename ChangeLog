@@ -1,3 +1,11 @@
+2017-02-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/data.R: Documentation for four included data sets from mlpack
+	* man/testRes.Rd: Test result data
+	* man/testSet.Rd: Test set data
+	* man/trainRes.Rd: Train result data
+	* man/trainSet.Rd: Train set data
+
 2017-01-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Several edits and updates
