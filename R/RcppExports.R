@@ -13,7 +13,7 @@ logisticRegression <- function(train, labels, test = NULL) {
     .Call('RcppMLPACK_logisticRegression', PACKAGE = 'RcppMLPACK', train, labels, test)
 }
 
-naiveBayesClassifier <- function(train, test, labels, classes) {
-    .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, test, labels, classes)
+naiveBayesClassifier <- function(train, labels, classes, test = NULL) {
+    .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, labels, classes, test)
 }
 

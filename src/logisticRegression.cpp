@@ -2,7 +2,8 @@
 
 #include <RcppMLPACK.h>				// MLPACK, Rcpp and RcppArmadillo
 
-#include <mlpack/methods/logistic_regression/logistic_regression.hpp> 	// particular algorithm used here
+// particular algorithm used here
+#include <mlpack/methods/logistic_regression/logistic_regression.hpp> 	
 
 // [[Rcpp::export]]
 Rcpp::List logisticRegression(const arma::mat& train,

@@ -45,16 +45,16 @@ BEGIN_RCPP
 END_RCPP
 }
 // naiveBayesClassifier
-arma::irowvec naiveBayesClassifier(const arma::mat& train, const arma::mat& test, const arma::irowvec& labels, const int& classes);
-RcppExport SEXP RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP testSEXP, SEXP labelsSEXP, SEXP classesSEXP) {
+arma::irowvec naiveBayesClassifier(const arma::mat& train, const arma::irowvec& labels, const int& classes, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
+RcppExport SEXP RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP labelsSEXP, SEXP classesSEXP, SEXP testSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type train(trainSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type test(testSEXP);
     Rcpp::traits::input_parameter< const arma::irowvec& >::type labels(labelsSEXP);
     Rcpp::traits::input_parameter< const int& >::type classes(classesSEXP);
-    rcpp_result_gen = Rcpp::wrap(naiveBayesClassifier(train, test, labels, classes));
+    Rcpp::traits::input_parameter< const Rcpp::Nullable<Rcpp::NumericMatrix>& >::type test(testSEXP);
+    rcpp_result_gen = Rcpp::wrap(naiveBayesClassifier(train, labels, classes, test));
     return rcpp_result_gen;
 END_RCPP
 }

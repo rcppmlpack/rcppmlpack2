@@ -2,13 +2,14 @@
 
 #include <RcppMLPACK.h>				// MLPACK, Rcpp and RcppArmadillo
 
-#include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp> 	// particular algorithm used here
+// particular algorithm used here
+#include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp> 	
 
 // [[Rcpp::export]]
-arma::irowvec naiveBayesClassifier(const arma::mat& train,
-                                   const arma::mat& test,
+Rcpp::List naiveBayesClassifier(const arma::mat& train,
                                    const arma::irowvec& labels,
-                                   const int& classes) {
+                                   const int& classes,
+                                   const Rcpp::Nullable<Rcpp::NumericMatrix>& test = R_NilValue) {
     
     // MLPACK wants Row<size_t> which is an unsigned representation
     // that R does not have
@@ -20,10 +21,20 @@ arma::irowvec naiveBayesClassifier(const arma::mat& train,
     // Initialize with the default arguments.
     // TODO: support more arguments>
     mlpack::naive_bayes::NaiveBayesClassifier<> nbc(train, labelsur, classes);
+
+    Rcpp::List return_val;
+    if (test.isNotNull()) {
+        arma::mat armatest = Rcpp::as<arma::mat>(test);
+        nbc.Classify(armatest, resultsur);
     
-    nbc.Classify(test, resultsur);
-    
-    arma::irowvec results = arma::conv_to<arma::irowvec>::from(resultsur);
-    
-    return results;
+        arma::irowvec results = arma::conv_to<arma::irowvec>::from(resultsur);
+        return Rcpp::List::create(Rcpp::Named("means") = nbc.Mean(),
+                                  Rcpp::Named("variances") = nbc.Variances(),
+                                  Rcpp::Named("probabilities") = nbc.Probabilities(),
+                                  Rcpp::Named("classification") = results);
+    } else {
+        return Rcpp::List::create(Rcpp::Named("means") = nbc.Mean(),
+                                  Rcpp::Named("variances") = nbc.Variances(),
+                                  Rcpp::Named("probabilities") = nbc.Probabilities());
+    }
 }
