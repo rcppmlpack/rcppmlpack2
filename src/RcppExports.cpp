@@ -45,7 +45,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // naiveBayesClassifier
-arma::irowvec naiveBayesClassifier(const arma::mat& train, const arma::irowvec& labels, const int& classes, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
+Rcpp::List naiveBayesClassifier(const arma::mat& train, const arma::irowvec& labels, const int& classes, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
 RcppExport SEXP RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP labelsSEXP, SEXP classesSEXP, SEXP testSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

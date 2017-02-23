@@ -13,6 +13,24 @@ logisticRegression <- function(train, labels, test = NULL) {
     .Call('RcppMLPACK_logisticRegression', PACKAGE = 'RcppMLPACK', train, labels, test)
 }
 
+#' Run a Naive Bayes Classifier given training data (and optional test data).
+#'
+#' This function uses train set matrix and vector of target labels to run
+#' a naive Bayes classifier for an externally given nummber of class. If
+#' an optional test data set is supplied, it will be evulated given the
+#' estimated from the initial test set.
+#'
+#' @title Run a Naive Bayes Classifier
+#' @param train A matrix of training data values
+#' @param labels An integer vector of target (class) labels, with the same 
+#'  length and the training data set
+#' @param classes An integer with the given number of classes
+#' @param test An optional test set, with the same number of columns as
+#'  the test set.
+#' @return A list with several components: means of training data means,
+#'  variance of training data variances, probanbilities of training data
+#'  class probabilities. If a test data set was supplied an estimated
+#'  classification vector is also returned.
 naiveBayesClassifier <- function(train, labels, classes, test = NULL) {
     .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, labels, classes, test)
 }
