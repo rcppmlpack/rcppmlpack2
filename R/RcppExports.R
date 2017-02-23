@@ -31,6 +31,13 @@ logisticRegression <- function(train, labels, test = NULL) {
 #'  variance of training data variances, probanbilities of training data
 #'  class probabilities. If a test data set was supplied an estimated
 #'  classification vector is also returned.
+#' @examples
+#' data(trainSet)
+#' M <- t(trainSet[, -5])    ## train data, transpose and removing class labels
+#' lb <- trainSet[, 5]       ## class labels for train set
+#' naiveBayesClassifier(M, lb, 2L)
+#' tM <- t(testSet[, -5])    ## test data
+#' naiveBayesClassifier(M, lb, 2L, tM)
 naiveBayesClassifier <- function(train, labels, classes, test = NULL) {
     .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, labels, classes, test)
 }

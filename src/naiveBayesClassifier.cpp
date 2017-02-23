@@ -23,11 +23,18 @@
 //'  variance of training data variances, probanbilities of training data
 //'  class probabilities. If a test data set was supplied an estimated
 //'  classification vector is also returned.
+//' @examples
+//' data(trainSet)
+//' M <- t(trainSet[, -5])    ## train data, transpose and removing class labels
+//' lb <- trainSet[, 5]       ## class labels for train set
+//' naiveBayesClassifier(M, lb, 2L)
+//' tM <- t(testSet[, -5])    ## test data
+//' naiveBayesClassifier(M, lb, 2L, tM)
 // [[Rcpp::export]]
 Rcpp::List naiveBayesClassifier(const arma::mat& train,
-                                   const arma::irowvec& labels,
-                                   const int& classes,
-                                   const Rcpp::Nullable<Rcpp::NumericMatrix>& test = R_NilValue) {
+                                const arma::irowvec& labels,
+                                const int& classes,
+                                const Rcpp::Nullable<Rcpp::NumericMatrix>& test = R_NilValue) {
     
     // MLPACK wants Row<size_t> which is an unsigned representation
     // that R does not have

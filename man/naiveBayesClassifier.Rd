@@ -32,3 +32,11 @@ a naive Bayes classifier for an externally given nummber of class. If
 an optional test data set is supplied, it will be evulated given the
 estimated from the initial test set.
 }
+\examples{
+data(trainSet)
+M <- t(trainSet[, -5])    ## train data, transpose and removing class labels
+lb <- trainSet[, 5]       ## class labels for train set
+naiveBayesClassifier(M, lb, 2L)
+tM <- t(testSet[, -5])    ## test data
+naiveBayesClassifier(M, lb, 2L, tM)
+}
