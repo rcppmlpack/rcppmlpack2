@@ -46,12 +46,12 @@ Rcpp::List naiveBayesClassifier(const arma::mat& train,
         nbc.Classify(armatest, resultsur);
     
         arma::irowvec results = arma::conv_to<arma::irowvec>::from(resultsur);
-        return Rcpp::List::create(Rcpp::Named("means") = nbc.Mean(),
+        return Rcpp::List::create(Rcpp::Named("means") = nbc.Means(),
                                   Rcpp::Named("variances") = nbc.Variances(),
                                   Rcpp::Named("probabilities") = nbc.Probabilities(),
                                   Rcpp::Named("classification") = results);
     } else {
-        return Rcpp::List::create(Rcpp::Named("means") = nbc.Mean(),
+        return Rcpp::List::create(Rcpp::Named("means") = nbc.Means(),
                                   Rcpp::Named("variances") = nbc.Variances(),
                                   Rcpp::Named("probabilities") = nbc.Probabilities());
     }

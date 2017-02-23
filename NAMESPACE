@@ -1,4 +1,6 @@
-useDynLib(RcppMLPACK)
-export(RcppMLPACK.package.skeleton, mlKmeans)
-importFrom(Rcpp, evalCpp)
-importFrom(utils, packageDescription, package.skeleton)
+useDynLib("RcppMLPACK")
+export("RcppMLPACK.package.skeleton",
+       "mlKmeans",
+       "naiveBayesClassifier")
+importFrom("Rcpp", "evalCpp")
+importFrom("utils", "packageDescription", "package.skeleton")
