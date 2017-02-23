@@ -5,14 +5,20 @@ Rcpp bindings for mlpack 2.*
 
 ### Experimental
 
-This is a more experimental version derived off [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s
-excellent [RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package which is also on CRAN as
-[RcppMLPACK](https://cran.r-project.org/package=RcppMLPACK).  That version is based on mlpack 1.0.6
-and embeds it, ensuring builds on all platforms CRAN cares about.
+This is a more experimental version derived off
+[Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s excellent
+[RcppMLPACK](https://github.com/thirdwing/RcppMLPACK) package which is also on CRAN as
+[RcppMLPACK](https://cran.r-project.org/package=RcppMLPACK).  That version is based on
+mlpack 1.0.6 and embeds it, ensuring builds on all platforms CRAN cares about.
 
-Here, we are trying to build something lighter-weight and more current. We will use _external_ (system)
-libraries for [mlpack](http://www.mlpack.org/) instead of bundling them inside the R package. See below for
-more detailed installation notes.
+Here, we are trying to build something lighter-weight and more current. We will use
+_external_ (system) libraries for [mlpack](http://www.mlpack.org/) instead of bundling
+them inside the R package. See below for more detailed installation notes.
+
+Note that the external Boost linkage creates issues with the RStudio IDE which also uses
+Boost threading and more itself. Loading the package will currently crash RStudio.  We
+strongly suspect that this is the cause, and have seen occassional issues with other Boost
+packages and RStudio.  Short of changing the build of RStudio no imminent fix is in sight.
 
 ### What is mlpack?
 
@@ -68,34 +74,38 @@ references:
 
 ### Installation
 
-As mentioned above, the official [RcppMLPACK CRAN package](https://cran.r-project.org/package=RcppMLPACK)
-with its [GitHub repo](https://github.com/thirdwing/RcppMLPACK)  includes the
-source code from the mlpack library (version 1.*). Thus users do not need to install
-mlpack itself in order to use RcppMLPACK.
+As mentioned above, the official
+[RcppMLPACK CRAN package](https://cran.r-project.org/package=RcppMLPACK) with its
+[GitHub repo](https://github.com/thirdwing/RcppMLPACK) includes the source code from the
+mlpack library (version 1.*). Thus users do not need to install mlpack itself in order to
+use RcppMLPACK.
 
 This package, however, uses the external [mlpack](http://www.mlpack.org/) library (version
 2.* or later), so below for detailed instructions.
 
 #### Debian
 
-Thanks to Barak Pearlmutter, there is an excellent [Debian package](https://packages.debian.org/source/sid/mlpack)
-and its versions 2.1.0 or later will do nicely. Just do `sudo apt-get install libmlpack-dev` (provided you point to Debian 
-_sid_ (aka 'unstable') or _stretch_ (aka 'testing') as these packages are not yet in a stable Debian release).
+Thanks to Barak Pearlmutter, there is an excellent
+[Debian package](https://packages.debian.org/source/sid/mlpack) and its versions 2.1.0 or
+later will do nicely. Just do `sudo apt-get install libmlpack-dev` (provided you point to
+Debian _sid_ (aka 'unstable') or _stretch_ (aka 'testing') as these packages are not yet
+in a stable Debian release).
 
 #### Ubuntu
 
 Unofficial packages for trusty (14.04) and xenial (16.04)
-[are available in my PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and used by the
-[Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml).  They are based
-on Barak's Debian packages.  Via the standard Debian-to-Ubuntu package transition, these should also appear in 
-Ubuntu 17.04 and later.
+[are available in my PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and
+used by the
+[Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml).
+They are based on Barak's Debian packages.  Via the standard Debian-to-Ubuntu package
+transition, these should also appear in Ubuntu 17.04 and later.
 
 #### OS X / Brew
 
-James Balamuta has kindly prepared a 
-[pull request which has been submitted and merged](https://github.com/Homebrew/homebrew-science/pull/4637) to
-update the version of mlpack in brew.  However, I hear that there are issue between the brew compiler stack 
-and what is used for R.  So this may be in flux.
+James Balamuta has kindly prepared a
+[pull request which has been submitted and merged](https://github.com/Homebrew/homebrew-science/pull/4637)
+to update the version of mlpack in brew.  However, I hear that there are issue between the
+brew compiler stack and what is used for R.  So this may be in flux.
 
 
 #### Others
