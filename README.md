@@ -15,10 +15,11 @@ Here, we are trying to build something lighter-weight and more current. We will 
 _external_ (system) libraries for [mlpack](http://www.mlpack.org/) instead of bundling
 them inside the R package. See below for more detailed installation notes.
 
-Note that the external Boost linkage creates issues with the RStudio IDE which also uses
-Boost threading and more itself. Loading the package will currently crash RStudio.  We
-strongly suspect that this is the cause, and have seen occassional issues with other Boost
-packages and RStudio.  Short of changing the build of RStudio no imminent fix is in sight.
+Note that the external Boost linkage may create issues with the RStudio IDE which also
+uses Boost threading (and then some more Boost) itself. Loading the package will currently
+crash RStudio.  We strongly suspect that this Boost interaction is the cause, and have
+seen occassional issues with other Boost packages and RStudio.  Short of changing the
+build of RStudio no imminent fix is in sight.
 
 ### What is mlpack?
 
