@@ -5,6 +5,29 @@
 // particular algorithm used here
 #include <mlpack/methods/logistic_regression/logistic_regression.hpp> 	
 
+//' Run a Logistic Regression given training data (and optional test data).
+//'
+//' This function uses a train set matrix and vector of target labels to run
+//' a logistic regression. If an optional test data set is supplied, it will
+//' be evaluated given the estimates from the initial test set.
+//'
+//' @title Run a Logistic Regression
+//' @param train A matrix of training data values
+//' @param labels An integer vector of target (class) labels, with the same 
+//'  length as the training data set
+//' @param test An optional test set, with the same number of columns as
+//'  the test set.
+//' @return A list with several components: means of training data means,
+//'  variance of training data variances, probanbilities of training data
+//'  class probabilities. If a test data set was supplied an estimated
+//'  classification vector is also returned.
+//' @examples
+//' data(trainSet)
+//' mat <- t(trainSet[, -5])     ## train data, transpose and removing class labels
+//' lab <- trainSet[, 5]         ## class labels for train set
+//' logisticRegression(mat, lab)
+//' testMat <- t(testSet[, -5])  ## test data
+//' logisticRegression(mat, lab, testMat)
 // [[Rcpp::export]]
 Rcpp::List logisticRegression(const arma::mat& train,
                               const arma::irowvec& labels,
