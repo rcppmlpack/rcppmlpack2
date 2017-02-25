@@ -10,7 +10,7 @@ naiveBayesClassifier(train, labels, classes, test = NULL)
 \item{train}{A matrix of training data values}
 
 \item{labels}{An integer vector of target (class) labels, with the same 
-length and the training data set}
+length as the training data set}
 
 \item{classes}{An integer with the given number of classes}
 
@@ -27,16 +27,16 @@ A list with several components: means of training data means,
 Run a Naive Bayes Classifier given training data (and optional test data).
 }
 \details{
-This function uses train set matrix and vector of target labels to run
+This function uses a train set matrix and vector of target labels to run
 a naive Bayes classifier for an externally given nummber of class. If
-an optional test data set is supplied, it will be evulated given the
-estimated from the initial test set.
+an optional test data set is supplied, it will be evaluated given the
+estimates from the initial test set.
 }
 \examples{
 data(trainSet)
-M <- t(trainSet[, -5])    ## train data, transpose and removing class labels
-lb <- trainSet[, 5]       ## class labels for train set
-naiveBayesClassifier(M, lb, 2L)
-tM <- t(testSet[, -5])    ## test data
-naiveBayesClassifier(M, lb, 2L, tM)
+mat <- t(trainSet[, -5])     ## train data, transpose and removing class labels
+lab <- trainSet[, 5]         ## class labels for train set
+naiveBayesClassifier(mat, lab, 2L)
+testMat <- t(testSet[, -5])  ## test data
+naiveBayesClassifier(mat, lab, 2L, testMat)
 }
