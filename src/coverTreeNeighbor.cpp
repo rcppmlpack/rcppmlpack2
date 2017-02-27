@@ -11,10 +11,22 @@ using namespace mlpack::neighbor;
 using namespace mlpack::metric;
 using namespace mlpack::tree;
 
+//' Run a Cover Tree distance measure analysis which provides a specialised 
+//'
+//' This function performs a distance calculation using a Cover Tree.
+//' A cover tree is a tree specifically designed to speed up nearest-neighbor
+//' computation in high-dimensional spaces.  Each non-leaf node references a
+//' point and has a nonzero number of children, including a \dQuote{self-child} which
+//' references the same point.  A leaf node represents only one point.
+//'
+//' @title Run a Cover Tree distance analysis
+//' @param dataset A matrix of training data values
+//' @param k An integer specifying the number of classes
+//' @return A list with two elements giving the nighbors and their distances
 // [[Rcpp::export]]
 List coverTreeNeighbor(const arma::mat& dataset, const int k) {
-    // using a test from MLPACK 2.0.* in file src/mlpack/tests/kfn_test.cpp
 
+    // define a shortcut via a typedef
     typedef CoverTree<LMetric<2, true>, NeighborSearchStat<FurthestNeighborSort>,
                       arma::mat, FirstPointIsRoot> TreeType;
 

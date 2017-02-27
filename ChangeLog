@@ -1,3 +1,8 @@
+2017-02-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/coverTreeNeighbor.cpp: Added documentation
+	* man/coverTreeNeighbor.Rd: Ditto
+
 2017-02-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/logisticRegression.cpp: Added documentation and example
