@@ -9,7 +9,7 @@ coverTreeNeighbor(dataset, k)
 \arguments{
 \item{dataset}{A matrix of training data values}
 
-\item{k}{An integer specifying the number of classes}
+\item{k}{An integer specifying the number of dimensions}
 }
 \value{
 A list with two elements giving the nighbors and their distances
@@ -23,4 +23,9 @@ A cover tree is a tree specifically designed to speed up nearest-neighbor
 computation in high-dimensional spaces.  Each non-leaf node references a
 point and has a nonzero number of children, including a \dQuote{self-child} which
 references the same point.  A leaf node represents only one point.
+}
+\examples{
+data(testData1kBy3)
+mat <- t(testData1kBy3)
+res <- coverTreeNeighbor(mat, 5)
 }

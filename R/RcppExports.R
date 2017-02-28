@@ -11,8 +11,12 @@
 #'
 #' @title Run a Cover Tree distance analysis
 #' @param dataset A matrix of training data values
-#' @param k An integer specifying the number of classes
+#' @param k An integer specifying the number of dimensions
 #' @return A list with two elements giving the nighbors and their distances
+#' @examples
+#' data(testData1kBy3)
+#' mat <- t(testData1kBy3)
+#' res <- coverTreeNeighbor(mat, 5)
 coverTreeNeighbor <- function(dataset, k) {
     .Call('RcppMLPACK_coverTreeNeighbor', PACKAGE = 'RcppMLPACK', dataset, k)
 }

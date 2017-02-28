@@ -1,7 +1,8 @@
 useDynLib("RcppMLPACK")
 export("RcppMLPACK.package.skeleton",
        "mlKmeans",
-       "naiveBayesClassifier",
-       "logisticRegression")
+       "coverTreeNeighbor",
+       "logisticRegression",
+       "naiveBayesClassifier")
 importFrom("Rcpp", "evalCpp")
 importFrom("utils", "packageDescription", "package.skeleton")

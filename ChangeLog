@@ -1,5 +1,9 @@
 2017-02-27  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/coverTreeNeighbor.cpp: Added documentation and example
+	* man/coverTreeNeighbor.Rd: Ditto
+	* NAMESPACE: Exported coverTreeNeighbor
+
 	* data/testData1kBy3.RData: New data set
 	* rawdata/test_data_3_1000.csv: New raw data
 	* rawdata/test_data_1k_by_3.r: New data converter

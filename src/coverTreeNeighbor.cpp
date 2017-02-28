@@ -21,8 +21,12 @@ using namespace mlpack::tree;
 //'
 //' @title Run a Cover Tree distance analysis
 //' @param dataset A matrix of training data values
-//' @param k An integer specifying the number of classes
+//' @param k An integer specifying the number of dimensions
 //' @return A list with two elements giving the nighbors and their distances
+//' @examples
+//' data(testData1kBy3)
+//' mat <- t(testData1kBy3)
+//' res <- coverTreeNeighbor(mat, 5)
 // [[Rcpp::export]]
 List coverTreeNeighbor(const arma::mat& dataset, const int k) {
 
@@ -30,11 +34,11 @@ List coverTreeNeighbor(const arma::mat& dataset, const int k) {
     typedef CoverTree<LMetric<2, true>, NeighborSearchStat<FurthestNeighborSort>,
                       arma::mat, FirstPointIsRoot> TreeType;
 
-    TreeType referenceTree = TreeType(dataset);
+    TreeType referenceTree(dataset);
     
     NeighborSearch<FurthestNeighborSort, LMetric<2, true>, arma::mat,
-                   StandardCoverTree> coverTreeSearch(&referenceTree);
-    
+                   StandardCoverTree> coverTreeSearch(std::move(referenceTree));
+   
     arma::Mat<size_t> coverNeighbors;
     arma::mat coverDistances;
     coverTreeSearch.Search(dataset, k, coverNeighbors, coverDistances);
