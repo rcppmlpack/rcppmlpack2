@@ -113,11 +113,11 @@ brew compiler stack and what is used for R.  So this may be in flux.
 
 You may have to install from source.  Let me know how it goes.
 
-#### Important one-line patch
+#### One-line patch
 
-The `R CMD check` command may complain about `std::cout` when using mlpack 2.1.0. Use
-[this one-line change](https://github.com/eddelbuettel/mlpack/commit/6dd600825395e1bdb0455ad836daefc49b5ca66f) which
-is also part of the mlpack 2.1.1 release.
+Under mlpack 2.1.0, the `R CMD check` command may complain about `std::cout`. Use
+[this one-line change](https://github.com/eddelbuettel/mlpack/commit/6dd600825395e1bdb0455ad836daefc49b5ca66f)
+which is also part of the mlpack 2.1.1 release.
 
 ### Authors
 
