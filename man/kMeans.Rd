@@ -7,9 +7,9 @@
 kMeans(data, clusters)
 }
 \arguments{
-\item{clusters}{An integer specifying the number of clusters}
+\item{data}{A matrix of data values}
 
-\item{dataset}{A matrix of data values}
+\item{clusters}{An integer specifying the number of clusters}
 }
 \value{
 A list with cluster assignments

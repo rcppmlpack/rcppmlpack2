@@ -33,3 +33,12 @@ NULL
 ##'  \code{mlpack} conventions.
 ##' @source \url{https://raw.githubusercontent.com/mlpack/mlpack/master/src/mlpack/tests/data/testRes.csv}
 NULL
+
+##' Test data from the mlpack unit tests
+##'
+##' @docType data
+##' @name testData1kBy3
+##' @format A \sQuote{csv} file read in and \emph{transposed} by
+##'  \code{mlpack} conventions.
+##' @source \url{https://raw.githubusercontent.com/mlpack/mlpack/master/src/mlpack/tests/data/test_data_3_1000.csv}
+NULL

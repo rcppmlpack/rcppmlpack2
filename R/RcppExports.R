@@ -26,7 +26,7 @@ coverTreeNeighbor <- function(dataset, k) {
 #' This function performs a k-means clustering analysis on the given data set.
 #'
 #' @title Run a k-means clustering analysis
-#' @param dataset A matrix of data values
+#' @param data A matrix of data values
 #' @param clusters An integer specifying the number of clusters
 #' @return A list with cluster assignments
 #' @examples
