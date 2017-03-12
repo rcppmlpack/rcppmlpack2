@@ -21,6 +21,19 @@ coverTreeNeighbor <- function(dataset, k) {
     .Call('RcppMLPACK_coverTreeNeighbor', PACKAGE = 'RcppMLPACK', dataset, k)
 }
 
+#' Run a k-means clustering analysis, returning a list of cluster assignments
+#'
+#' This function performs a k-means clustering analysis on the given data set.
+#'
+#' @title Run a k-means clustering analysis
+#' @param dataset A matrix of data values
+#' @param clusters An integer specifying the number of clusters
+#' @return A list with cluster assignments
+#' @examples
+#' x <- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
+#'            matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
+#' colnames(x) <- c("x", "y")
+#' cl <- kmeans(x, 2)
 kmeans <- function(data, clusters) {
     .Call('RcppMLPACK_kmeans', PACKAGE = 'RcppMLPACK', data, clusters)
 }
