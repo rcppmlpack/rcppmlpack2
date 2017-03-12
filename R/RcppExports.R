@@ -33,9 +33,12 @@ coverTreeNeighbor <- function(dataset, k) {
 #' x <- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
 #'            matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
 #' colnames(x) <- c("x", "y")
-#' cl <- kmeans(x, 2)
-kmeans <- function(data, clusters) {
-    .Call('RcppMLPACK_kmeans', PACKAGE = 'RcppMLPACK', data, clusters)
+#' cl <- kMeans(x, 2)
+#'
+#' data(trees, package="datasets")
+#' cl2 <- kMeans(t(trees),3)
+kMeans <- function(data, clusters) {
+    .Call('RcppMLPACK_kMeans', PACKAGE = 'RcppMLPACK', data, clusters)
 }
 
 #' Run a Logistic Regression given training data (and optional test data).

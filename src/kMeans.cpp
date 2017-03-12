@@ -17,9 +17,12 @@
 //' x <- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
 //'            matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
 //' colnames(x) <- c("x", "y")
-//' cl <- kmeans(x, 2)
+//' cl <- kMeans(x, 2)
+//'
+//' data(trees, package="datasets")
+//' cl2 <- kMeans(t(trees),3)
 // [[Rcpp::export]]
-Rcpp::List kmeans(const arma::mat& data, const int& clusters) {
+Rcpp::List kMeans(const arma::mat& data, const int& clusters) {
     
     arma::Row<size_t> assignments; 		// to store results
     mlpack::kmeans::KMeans<> k;    		// initialize with the default arguments.
