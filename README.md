@@ -15,11 +15,11 @@ Here, we are trying to build something lighter-weight and more current. We will 
 _external_ (system) libraries for [mlpack](http://www.mlpack.org/) instead of bundling
 them inside the R package. See below for more detailed installation notes.
 
-Note that the external Boost linkage may create issues with the RStudio IDE which also
-uses Boost threading (and then some more Boost) itself. Loading the package will currently
-crash RStudio.  We strongly suspect that this Boost interaction is the cause, and have
-seen occassional issues with other Boost packages and RStudio.  Short of changing the
-build of RStudio no imminent fix is in sight.
+Note that the external Boost linkage created issues with the RStudio IDE which also
+uses Boost threading (and then some more Boost) itself. Loading the package will 
+crash an RStudio binary that is older than the daily build version 1.1.129.  The good
+news is than more recent RStudio versions are not affected due to a change in how
+the IDE is built off Boost.  
 
 ### What is mlpack?
 
@@ -82,7 +82,10 @@ mlpack library (version 1.*). Thus users do not need to install mlpack itself in
 use RcppMLPACK.
 
 This package, however, uses the external [mlpack](http://www.mlpack.org/) library (version
-2.* or later), so below for detailed instructions.
+2.* or later), so see below for detailed instructions.  
+
+We have successfully used version 2.1.0 (with a patch, see below), version 2.1.1 and now 
+version 2.2.0.
 
 #### Debian
 
@@ -94,8 +97,8 @@ in a stable Debian release).
 
 #### Ubuntu
 
-Unofficial packages for trusty (14.04) and xenial (16.04)
-[are available in my PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and
+Unofficial packages for trusty (14.04), xenial (16.04) and yakkety (16.10)
+[are available in Dirk's PPA](https://launchpad.net/~edd/+archive/ubuntu/misc/+packages), and
 used by the
 [Travis CI integration](https://github.com/eddelbuettel/rcppmlpack2/blob/master/.travis.yml).
 They are based on Barak's Debian packages.  Via the standard Debian-to-Ubuntu package
@@ -117,7 +120,7 @@ You may have to install from source.  Let me know how it goes.
 
 Under mlpack 2.1.0, the `R CMD check` command may complain about `std::cout`. Use
 [this one-line change](https://github.com/eddelbuettel/mlpack/commit/6dd600825395e1bdb0455ad836daefc49b5ca66f)
-which is also part of the mlpack 2.1.1 release.
+which is also part of the mlpack 2.1.1 release. Release 2.1.1 and 2.2.0 are fine.
 
 ### Authors
 

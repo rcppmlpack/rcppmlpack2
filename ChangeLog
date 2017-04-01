@@ -1,3 +1,7 @@
+2017-04-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Updated
+
 2017-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/kmeans.cpp: Added documentation and example
