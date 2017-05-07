@@ -41,6 +41,18 @@ kMeans <- function(data, clusters) {
     .Call('RcppMLPACK_kMeans', PACKAGE = 'RcppMLPACK', data, clusters)
 }
 
+#' Run a lars/lasso/elasticNet regression
+#'
+#' This function performs a lars, lasso or elastic net regression
+#'
+#' @title Run a lars / lasso / elasticNet regression
+#' @param data A matrix of data values
+#' @return A list with results
+#' @examples
+LARS <- function(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
+    .Call('RcppMLPACK_LARS', PACKAGE = 'RcppMLPACK', matX, matY, testPoints, lambda1, lambda2, useCholesky)
+}
+
 #' Run a Logistic Regression given training data (and optional test data).
 #'
 #' This function uses a train set matrix and vector of target labels to run
