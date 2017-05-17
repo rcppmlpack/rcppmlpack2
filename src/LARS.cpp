@@ -10,6 +10,7 @@
 //' @param data A matrix of data values
 //' @return A list with results
 //' @examples
+//'   # tbd
 // [[Rcpp::export]]
 Rcpp::List LARS(arma::mat& matX, arma::mat& matY, const arma::mat& testPoints,
                 const double lambda1, const double lambda2,

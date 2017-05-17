@@ -1,3 +1,20 @@
+2017-05-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/init.c (R_init_RcppMLPACK): all R_registerRoutines()
+	and R_useDynamicSymbols()
+	* NAMESPACE: Use .registration=TRUE on useDynLib
+
+	* src/linearRegression.cpp (linearRegression): New (and very
+	simple) OLS (and Ridge) example function
+	* man/man/linearRegression.Rd: Documentation
+
+2017-05-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/LARS.cpp (LARS): Beginnings of LARS function
+	* man/LARS.Rd: Beginnings of documentation
+
+	* .editorconfig: Added to support EditorConfig
+
 2017-04-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Updated

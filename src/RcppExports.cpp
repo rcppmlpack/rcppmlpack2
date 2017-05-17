@@ -47,6 +47,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// linearRegression
+arma::vec linearRegression(arma::mat& matX, arma::vec& vecY, const double lambda, const bool intercept);
+RcppExport SEXP RcppMLPACK_linearRegression(SEXP matXSEXP, SEXP vecYSEXP, SEXP lambdaSEXP, SEXP interceptSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type matX(matXSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type vecY(vecYSEXP);
+    Rcpp::traits::input_parameter< const double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< const bool >::type intercept(interceptSEXP);
+    rcpp_result_gen = Rcpp::wrap(linearRegression(matX, vecY, lambda, intercept));
+    return rcpp_result_gen;
+END_RCPP
+}
 // logisticRegression
 Rcpp::List logisticRegression(const arma::mat& train, const arma::irowvec& labels, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
 RcppExport SEXP RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP labelsSEXP, SEXP testSEXP) {

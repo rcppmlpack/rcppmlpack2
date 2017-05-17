@@ -49,8 +49,28 @@ kMeans <- function(data, clusters) {
 #' @param data A matrix of data values
 #' @return A list with results
 #' @examples
+#'   # tbd
 LARS <- function(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
     .Call('RcppMLPACK_LARS', PACKAGE = 'RcppMLPACK', matX, matY, testPoints, lambda1, lambda2, useCholesky)
+}
+
+#' Run a linear regression (with optional ridge regression)
+#'
+#' This function performs a linear regression, and serves as a simple
+#' test case for accessing an MLPACK function.
+#'
+#' @title Run a linear regression with optional ridge regression
+#' @param matX A matrix of explanatory variables ('predictors') in standard
+#' R format (i.e. \sQuote{tall and skinny'} to be transposed internally to MLPACK
+#' format (i.e. `\sQuote{short and wide}).
+#' @param vecY A vector of dependent variables ('responses')
+#' @param lambda An optional ridge parameter, defaults to zero
+#' @param intercept An optional boolean switch about an intercept, default is true.
+#' @return A vector with fitted values
+#' @examples
+#'   # tbd
+linearRegression <- function(matX, vecY, lambda = 0.0, intercept = TRUE) {
+    .Call('RcppMLPACK_linearRegression', PACKAGE = 'RcppMLPACK', matX, vecY, lambda, intercept)
 }
 
 #' Run a Logistic Regression given training data (and optional test data).
