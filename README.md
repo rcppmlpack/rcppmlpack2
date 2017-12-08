@@ -1,4 +1,4 @@
-## RcppMLPACK2 [![Build Status](https://travis-ci.org/eddelbuettel/rcppmlpack2.svg)](https://travis-ci.org/eddelbuettel/rcppmlpack2) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) 
+## RcppMLPACK2 [![Build Status](https://travis-ci.org/eddelbuettel/rcppmlpack2.svg)](https://travis-ci.org/rcppmlpack/rcppmlpack2) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) 
 
 
 Rcpp bindings for mlpack 2.*
