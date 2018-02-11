@@ -18,7 +18,7 @@
 #' mat <- t(testData1kBy3)
 #' res <- coverTreeNeighbor(mat, 5)
 coverTreeNeighbor <- function(dataset, k) {
-    .Call('RcppMLPACK_coverTreeNeighbor', PACKAGE = 'RcppMLPACK', dataset, k)
+    .Call(`_RcppMLPACK_coverTreeNeighbor`, dataset, k)
 }
 
 #' Run a k-means clustering analysis, returning a list of cluster assignments
@@ -38,7 +38,7 @@ coverTreeNeighbor <- function(dataset, k) {
 #' data(trees, package="datasets")
 #' cl2 <- kMeans(t(trees),3)
 kMeans <- function(data, clusters) {
-    .Call('RcppMLPACK_kMeans', PACKAGE = 'RcppMLPACK', data, clusters)
+    .Call(`_RcppMLPACK_kMeans`, data, clusters)
 }
 
 #' Run a lars/lasso/elasticNet regression
@@ -51,7 +51,7 @@ kMeans <- function(data, clusters) {
 #' @examples
 #'   # tbd
 LARS <- function(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
-    .Call('RcppMLPACK_LARS', PACKAGE = 'RcppMLPACK', matX, matY, testPoints, lambda1, lambda2, useCholesky)
+    .Call(`_RcppMLPACK_LARS`, matX, matY, testPoints, lambda1, lambda2, useCholesky)
 }
 
 #' Run a linear regression (with optional ridge regression)
@@ -70,7 +70,7 @@ LARS <- function(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE) 
 #' @examples
 #'   # tbd
 linearRegression <- function(matX, vecY, lambda = 0.0, intercept = TRUE) {
-    .Call('RcppMLPACK_linearRegression', PACKAGE = 'RcppMLPACK', matX, vecY, lambda, intercept)
+    .Call(`_RcppMLPACK_linearRegression`, matX, vecY, lambda, intercept)
 }
 
 #' Run a Logistic Regression given training data (and optional test data).
@@ -97,7 +97,7 @@ linearRegression <- function(matX, vecY, lambda = 0.0, intercept = TRUE) {
 #' testMat <- t(testSet[, -5])  ## test data
 #' logisticRegression(mat, lab, testMat)
 logisticRegression <- function(train, labels, test = NULL) {
-    .Call('RcppMLPACK_logisticRegression', PACKAGE = 'RcppMLPACK', train, labels, test)
+    .Call(`_RcppMLPACK_logisticRegression`, train, labels, test)
 }
 
 #' Run a Naive Bayes Classifier given training data (and optional test data).
@@ -126,6 +126,6 @@ logisticRegression <- function(train, labels, test = NULL) {
 #' testMat <- t(testSet[, -5])  ## test data
 #' naiveBayesClassifier(mat, lab, 2L, testMat)
 naiveBayesClassifier <- function(train, labels, classes, test = NULL) {
-    .Call('RcppMLPACK_naiveBayesClassifier', PACKAGE = 'RcppMLPACK', train, labels, classes, test)
+    .Call(`_RcppMLPACK_naiveBayesClassifier`, train, labels, classes, test)
 }
 

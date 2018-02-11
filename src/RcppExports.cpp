@@ -9,7 +9,7 @@ using namespace Rcpp;
 
 // coverTreeNeighbor
 List coverTreeNeighbor(const arma::mat& dataset, const int k);
-RcppExport SEXP RcppMLPACK_coverTreeNeighbor(SEXP datasetSEXP, SEXP kSEXP) {
+RcppExport SEXP _RcppMLPACK_coverTreeNeighbor(SEXP datasetSEXP, SEXP kSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // kMeans
 Rcpp::List kMeans(const arma::mat& data, const int& clusters);
-RcppExport SEXP RcppMLPACK_kMeans(SEXP dataSEXP, SEXP clustersSEXP) {
+RcppExport SEXP _RcppMLPACK_kMeans(SEXP dataSEXP, SEXP clustersSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,7 +33,7 @@ END_RCPP
 }
 // LARS
 Rcpp::List LARS(arma::mat& matX, arma::mat& matY, const arma::mat& testPoints, const double lambda1, const double lambda2, bool useCholesky);
-RcppExport SEXP RcppMLPACK_LARS(SEXP matXSEXP, SEXP matYSEXP, SEXP testPointsSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP useCholeskySEXP) {
+RcppExport SEXP _RcppMLPACK_LARS(SEXP matXSEXP, SEXP matYSEXP, SEXP testPointsSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP useCholeskySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -49,7 +49,7 @@ END_RCPP
 }
 // linearRegression
 arma::vec linearRegression(arma::mat& matX, arma::vec& vecY, const double lambda, const bool intercept);
-RcppExport SEXP RcppMLPACK_linearRegression(SEXP matXSEXP, SEXP vecYSEXP, SEXP lambdaSEXP, SEXP interceptSEXP) {
+RcppExport SEXP _RcppMLPACK_linearRegression(SEXP matXSEXP, SEXP vecYSEXP, SEXP lambdaSEXP, SEXP interceptSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -63,7 +63,7 @@ END_RCPP
 }
 // logisticRegression
 Rcpp::List logisticRegression(const arma::mat& train, const arma::irowvec& labels, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
-RcppExport SEXP RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP labelsSEXP, SEXP testSEXP) {
+RcppExport SEXP _RcppMLPACK_logisticRegression(SEXP trainSEXP, SEXP labelsSEXP, SEXP testSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -76,7 +76,7 @@ END_RCPP
 }
 // naiveBayesClassifier
 Rcpp::List naiveBayesClassifier(const arma::mat& train, const arma::irowvec& labels, const int& classes, const Rcpp::Nullable<Rcpp::NumericMatrix>& test);
-RcppExport SEXP RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP labelsSEXP, SEXP classesSEXP, SEXP testSEXP) {
+RcppExport SEXP _RcppMLPACK_naiveBayesClassifier(SEXP trainSEXP, SEXP labelsSEXP, SEXP classesSEXP, SEXP testSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -87,4 +87,19 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(naiveBayesClassifier(train, labels, classes, test));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_RcppMLPACK_coverTreeNeighbor", (DL_FUNC) &_RcppMLPACK_coverTreeNeighbor, 2},
+    {"_RcppMLPACK_kMeans", (DL_FUNC) &_RcppMLPACK_kMeans, 2},
+    {"_RcppMLPACK_LARS", (DL_FUNC) &_RcppMLPACK_LARS, 6},
+    {"_RcppMLPACK_linearRegression", (DL_FUNC) &_RcppMLPACK_linearRegression, 4},
+    {"_RcppMLPACK_logisticRegression", (DL_FUNC) &_RcppMLPACK_logisticRegression, 3},
+    {"_RcppMLPACK_naiveBayesClassifier", (DL_FUNC) &_RcppMLPACK_naiveBayesClassifier, 4},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_RcppMLPACK(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
