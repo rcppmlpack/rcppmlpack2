@@ -4,24 +4,26 @@
 \alias{LARS}
 \title{Run a lars / lasso / elasticNet regression}
 \usage{
-LARS(matX, vecY, testPoints, lambda1, lambda2, useCholesky = FALSE)
+LARS(matX, vecY, lambda1, lambda2, useCholesky = FALSE, testX = NULL)
 }
 \arguments{
 \item{matX}{A matrix of explanatory variables, i.e. regressors}
 
 \item{vecY}{A vector with the target variable}
 
-\item{testPoints}{A matrix of test values to validate prediction}
-
 \item{lambda1}{A doube with l1-norm penalty regularization parameter}
 
 \item{lambda2}{A doube with l2-norm penalty regularization parameter}
 
-\item{useCholesky}{A logical value indicating whether to use the Cholesky
+\item{useCholesky}{A logical value indicating whether to use the Cholesky}
+
+\item{testX}{A optional matrix of test values to validate prediction
 decomposition when solving the linear system, else full Gram matrix is used.}
 }
 \value{
-A list with results
+A list with estimated coefficient, the value of lambda1 after each iteration
+and the predicted values, either from the training data or, if supplied, the test
+set.
 }
 \description{
 Run a lars/lasso/elasticNet regression

@@ -1,3 +1,8 @@
+2018-02-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/LARS.cpp (LARS): Change interface to have training set as
+	optional last parameter; retun list with several result elements
+
 2018-02-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/LARS.cpp: Completed roxygen docs of variables, added simple
