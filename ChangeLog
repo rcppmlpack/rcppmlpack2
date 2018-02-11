@@ -4,6 +4,9 @@
 	example
 	* man/LARS.Rd: Idem
 
+	* inst/include/RcppMLPACK.h: Define ARMA_COUT_STREAM and
+	ARMA_CERR_STREAM instead of the deprecated ARMA_DEFAULT_OSTREAM
+
 	* src/init.c: Removed, now auto-generated in RcppExports.cpp
 	* src/RcppExports.cpp: Regenerated
 	* R/RcppExports.R: Idem

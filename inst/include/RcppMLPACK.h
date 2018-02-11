@@ -12,10 +12,18 @@
 #endif
 
 // Rcpp has its own stream object which cooperates more nicely with R's i/o
-// And as of Armadillo 2.4.3, we can use this stream object as well 
-#if !defined(ARMA_DEFAULT_OSTREAM)
-#define ARMA_DEFAULT_OSTREAM Rcpp::Rcout
+// And as of Armadillo 2.4.3, we can use this stream object as well
+//
+// More recently this changes from ARMA_DEFAULT_OSTREAM to ARMA_COUT_STREAM
+// and ARMA_CERR_STREAM
+#if !defined(ARMA_COUT_STREAM)
+  #define ARMA_COUT_STREAM Rcpp::Rcout
 #endif
+#if !defined(ARMA_CERR_STREAM)
+  #define ARMA_CERR_STREAM Rcpp::Rcerr
+#endif
+
+
 
 #include <Rcpp.h>
 
@@ -25,7 +33,7 @@
 
 // instead of including RcppArmadillo.h -- which re-includes parts
 // of Armadillo already brought in by mlpack, we just include pieces
-// needed for sugar wrapping etc 
+// needed for sugar wrapping etc
 
 #include <RcppArmadilloConfig.h>
 #include <RcppArmadilloWrap.h>
