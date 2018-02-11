@@ -47,7 +47,7 @@ kMeans <- function(data, clusters) {
 #'
 #' @title Run a lars / lasso / elasticNet regression
 #' @param matX A matrix of explanatory variables, i.e. regressors
-#' @param matY A matrix of target variables
+#' @param vecY A vector with the target variable
 #' @param testPoints A matrix of test values to validate prediction
 #' @param lambda1 A doube with l1-norm penalty regularization parameter
 #' @param lambda2 A doube with l2-norm penalty regularization parameter
@@ -55,9 +55,13 @@ kMeans <- function(data, clusters) {
 #' decomposition when solving the linear system, else full Gram matrix is used.
 #' @return A list with results
 #' @examples
-#'   # tbd
-LARS <- function(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
-    .Call(`_RcppMLPACK_LARS`, matX, matY, testPoints, lambda1, lambda2, useCholesky)
+#'   data(trainSet)
+#'   mat <- trainSet[, -5]
+#'   y <- trainSet[,5]
+#'   tst <- testSet[, -5]
+#'   res <- LARS(mat, y, tst, 0.5, 0.5)
+LARS <- function(matX, vecY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
+    .Call(`_RcppMLPACK_LARS`, matX, vecY, testPoints, lambda1, lambda2, useCholesky)
 }
 
 #' Run a linear regression (with optional ridge regression)

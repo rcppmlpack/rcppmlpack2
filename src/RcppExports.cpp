@@ -32,18 +32,18 @@ BEGIN_RCPP
 END_RCPP
 }
 // LARS
-Rcpp::List LARS(arma::mat& matX, arma::mat& matY, const arma::mat& testPoints, const double lambda1, const double lambda2, bool useCholesky);
-RcppExport SEXP _RcppMLPACK_LARS(SEXP matXSEXP, SEXP matYSEXP, SEXP testPointsSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP useCholeskySEXP) {
+Rcpp::List LARS(arma::mat& matX, arma::vec& vecY, const arma::mat& testPoints, const double lambda1, const double lambda2, bool useCholesky);
+RcppExport SEXP _RcppMLPACK_LARS(SEXP matXSEXP, SEXP vecYSEXP, SEXP testPointsSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP useCholeskySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat& >::type matX(matXSEXP);
-    Rcpp::traits::input_parameter< arma::mat& >::type matY(matYSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type vecY(vecYSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type testPoints(testPointsSEXP);
     Rcpp::traits::input_parameter< const double >::type lambda1(lambda1SEXP);
     Rcpp::traits::input_parameter< const double >::type lambda2(lambda2SEXP);
     Rcpp::traits::input_parameter< bool >::type useCholesky(useCholeskySEXP);
-    rcpp_result_gen = Rcpp::wrap(LARS(matX, matY, testPoints, lambda1, lambda2, useCholesky));
+    rcpp_result_gen = Rcpp::wrap(LARS(matX, vecY, testPoints, lambda1, lambda2, useCholesky));
     return rcpp_result_gen;
 END_RCPP
 }

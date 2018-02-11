@@ -4,12 +4,12 @@
 \alias{LARS}
 \title{Run a lars / lasso / elasticNet regression}
 \usage{
-LARS(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE)
+LARS(matX, vecY, testPoints, lambda1, lambda2, useCholesky = FALSE)
 }
 \arguments{
 \item{matX}{A matrix of explanatory variables, i.e. regressors}
 
-\item{matY}{A matrix of target variables}
+\item{vecY}{A vector with the target variable}
 
 \item{testPoints}{A matrix of test values to validate prediction}
 
@@ -30,5 +30,9 @@ Run a lars/lasso/elasticNet regression
 This function performs a lars, lasso or elastic net regression.
 }
 \examples{
-  # tbd
+  data(trainSet)
+  mat <- trainSet[, -5]
+  y <- trainSet[,5]
+  tst <- testSet[, -5]
+  res <- LARS(mat, y, tst, 0.5, 0.5)
 }

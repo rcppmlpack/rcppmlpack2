@@ -4,6 +4,7 @@ export("RcppMLPACK.package.skeleton",
        "coverTreeNeighbor",
        "linearRegression",
        "logisticRegression",
-       "naiveBayesClassifier")
+       "naiveBayesClassifier",
+       "LARS")
 importFrom("Rcpp", "evalCpp")
 importFrom("utils", "packageDescription", "package.skeleton")
