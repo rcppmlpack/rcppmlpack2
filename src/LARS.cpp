@@ -4,10 +4,16 @@
 
 //' Run a lars/lasso/elasticNet regression
 //'
-//' This function performs a lars, lasso or elastic net regression
+//' This function performs a lars, lasso or elastic net regression.
 //'
 //' @title Run a lars / lasso / elasticNet regression
-//' @param data A matrix of data values
+//' @param matX A matrix of explanatory variables, i.e. regressors
+//' @param matY A matrix of target variables
+//' @param testPoints A matrix of test values to validate prediction
+//' @param lambda1 A doube with l1-norm penalty regularization parameter
+//' @param lambda2 A doube with l2-norm penalty regularization parameter
+//' @param useCholesky A logical value indicating whether to use the Cholesky
+//' decomposition when solving the linear system, else full Gram matrix is used.
 //' @return A list with results
 //' @examples
 //'   # tbd

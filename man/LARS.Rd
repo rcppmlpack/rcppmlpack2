@@ -7,7 +7,18 @@
 LARS(matX, matY, testPoints, lambda1, lambda2, useCholesky = FALSE)
 }
 \arguments{
-\item{data}{A matrix of data values}
+\item{matX}{A matrix of explanatory variables, i.e. regressors}
+
+\item{matY}{A matrix of target variables}
+
+\item{testPoints}{A matrix of test values to validate prediction}
+
+\item{lambda1}{A doube with l1-norm penalty regularization parameter}
+
+\item{lambda2}{A doube with l2-norm penalty regularization parameter}
+
+\item{useCholesky}{A logical value indicating whether to use the Cholesky
+decomposition when solving the linear system, else full Gram matrix is used.}
 }
 \value{
 A list with results
@@ -16,7 +27,7 @@ A list with results
 Run a lars/lasso/elasticNet regression
 }
 \details{
-This function performs a lars, lasso or elastic net regression
+This function performs a lars, lasso or elastic net regression.
 }
 \examples{
   # tbd
