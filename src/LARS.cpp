@@ -16,11 +16,13 @@
 //' decomposition when solving the linear system, else full Gram matrix is used.
 //' @return A list with results
 //' @examples
+//' \dontrun{
 //'   data(trainSet)
 //'   mat <- trainSet[, -5]
 //'   y <- trainSet[,5]
 //'   tst <- testSet[, -5]
 //'   res <- LARS(mat, y, tst, 0.5, 0.5)
+//' }
 // [[Rcpp::export]]
 Rcpp::List LARS(arma::mat& matX, arma::vec& vecY, const arma::mat& testPoints,
                 const double lambda1, const double lambda2,

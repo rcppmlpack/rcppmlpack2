@@ -30,9 +30,11 @@ Run a lars/lasso/elasticNet regression
 This function performs a lars, lasso or elastic net regression.
 }
 \examples{
+\dontrun{
   data(trainSet)
   mat <- trainSet[, -5]
   y <- trainSet[,5]
   tst <- testSet[, -5]
   res <- LARS(mat, y, tst, 0.5, 0.5)
+}
 }

@@ -55,11 +55,13 @@ kMeans <- function(data, clusters) {
 #' decomposition when solving the linear system, else full Gram matrix is used.
 #' @return A list with results
 #' @examples
+#' \dontrun{
 #'   data(trainSet)
 #'   mat <- trainSet[, -5]
 #'   y <- trainSet[,5]
 #'   tst <- testSet[, -5]
 #'   res <- LARS(mat, y, tst, 0.5, 0.5)
+#' }
 LARS <- function(matX, vecY, testPoints, lambda1, lambda2, useCholesky = FALSE) {
     .Call(`_RcppMLPACK_LARS`, matX, vecY, testPoints, lambda1, lambda2, useCholesky)
 }
