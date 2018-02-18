@@ -18,13 +18,10 @@
 //' and the predicted values, either from the training data or, if supplied, the test
 //' set.
 //' @examples
-//' \dontrun{
-//'   data(trainSet)
-//'   mat <- trainSet[, -5]
-//'   y <- trainSet[,5]
-//'   tst <- testSet[, -5]
-//'   res <- LARS(mat, y, tst, 0.5, 0.5)
-//' }
+//' ## LARS demo data set from MLPACK with limited rank
+//' data(lars)
+//' fit1 <- LARS(matX = lars_dependent_x, vecY = lars_dependent_y, 0.1, 0.1, FALSE)
+//' fit2 <- LARS(matX = lars_dependent_x, vecY = lars_dependent_y, 0.1, 0.1, TRUE)
 // [[Rcpp::export]]
 Rcpp::List LARS(arma::mat& matX, arma::vec& vecY,
                 const double lambda1, const double lambda2,
