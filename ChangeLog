@@ -1,3 +1,13 @@
+2018-02-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* data/lars.RData: New data set from MLPACK
+	* rawdata/lars_dependent_x.csv: X data, limited rank matrix
+	* rawdata/lars_dependent_y.csv: Y colum
+	* rawdata/lars_data.r: Processing
+	* R/data.R: Documentation
+	* man/lars_dependent_x.Rd: Idem
+	* man/lars_dependent_y.Rd: Idem
+
 2018-02-11  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/LARS.cpp (LARS): Change interface to have training set as
