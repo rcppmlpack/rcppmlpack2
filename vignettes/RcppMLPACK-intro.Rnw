@@ -2,6 +2,7 @@
 %\VignetteIndexEntry{RcppMLPACK-introduction}
 %\VignetteKeywords{R, C++, Armadillo, MLPACK, machine learning}
 %\VignettePackage{RcppMLPACK}
+%\VignetteDepends{RcppMLPACK}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsthm, amsfonts, array}
 \usepackage{graphicx,booktabs,xcolor,color}
@@ -48,9 +49,9 @@
 MLPACK\cite{curtin2013mlpack} is a C++ machine learning library with emphasis on scalability, speed, and ease-of-use. It outperforms competing machine learning libraries by large margins, for detailed results of benchmarking, please refer to Ref\cite{curtin2013mlpack}.
 
 \subsection{Input/Output using Armadillo}
-MLPACK uses Armadillo as input and output, which provides vector, matrix and cube types (integer, floating point and complex numbers are supported)\cite{arma}. By providing Matlab-like syntax and various matrix decompositions through integration with LAPACK or other high performance libraries (such as Intel MKL, AMD ACML, or OpenBLAS), Armadillo keeps a good balance between speed and ease of use. 
+MLPACK uses Armadillo as input and output, which provides vector, matrix and cube types (integer, floating point and complex numbers are supported)\cite{arma}. By providing Matlab-like syntax and various matrix decompositions through integration with LAPACK or other high performance libraries (such as Intel MKL, AMD ACML, or OpenBLAS), Armadillo keeps a good balance between speed and ease of use.
 
-Armadillo is widely used in C++ libraries like MLPACK. However, there is one point we need to pay attention to: Armadillo matrices in MLPACK are stored in a column-major format for speed. That means observations are stored as columns and dimensions as rows. 
+Armadillo is widely used in C++ libraries like MLPACK. However, there is one point we need to pay attention to: Armadillo matrices in MLPACK are stored in a column-major format for speed. That means observations are stored as columns and dimensions as rows.
 So when using MLPACK, additional transpose may be needed.
 
 \subsection{Simple API}
@@ -116,13 +117,13 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 List kmeans(const arma::mat& data, const int& clusters) {
-    
+
     arma::Col<size_t> assignments;
 
     // Initialize with the default arguments.
     KMeans<> k;
 
-    k.Cluster(data, clusters, assignments); 
+    k.Cluster(data, clusters, assignments);
 
     return List::create(_["clusters"] = clusters,
                         _["result"]   = assignments);
@@ -144,11 +145,11 @@ code <- '
   int clusters = as<int>(n);
   arma::Col<size_t> assignments;
   mlpack::kmeans::KMeans<> k;
-  k.Cluster(data, clusters, assignments); 
+  k.Cluster(data, clusters, assignments);
   return List::create(_["clusters"] = clusters,
                       _["result"]   = assignments);
 '
-mlKmeans <- cxxfunction(signature(test="numeric", n ="integer"), code, 
+mlKmeans <- cxxfunction(signature(test="numeric", n ="integer"), code,
                         plugin="RcppMLPACK")
 data(trees, package="datasets")
 mlKmeans(t(trees), 3)
@@ -215,7 +216,7 @@ mlpack::data::Load(inputFile, data, true);
 int clusters = as<int>(n);
 arma::Col<size_t> assignments;
 mlpack::kmeans::KMeans<> k;
-k.Cluster(data, clusters, assignments); 
+k.Cluster(data, clusters, assignments);
 arma::Mat<size_t> out = trans(assignments);
 mlpack::data::Save(outputFile, out);
 \end{lstlisting}
@@ -223,7 +224,7 @@ mlpack::data::Save(outputFile, out);
 \subsection{Performance}
 
 Even without a performance testing, we are still sure the C++ implementations should be faster.
-A small wine data set from UCI data sets repository is used for benchmarking, 
+A small wine data set from UCI data sets repository is used for benchmarking,
 you can download it from \url{https://archive.ics.uci.edu/ml/datasets/Wine}.
 \textbf{rbenchmark}\cite{rbenchmark} package is also used.
 
@@ -239,9 +240,9 @@ res <- benchmark(mlKmeans(t(wine),3),
 \centering
 \caption{Benchmarking result}
 \begin{tabular}{rrrrrr}
-\hline 
+\hline
 test & replications & elapsed & relative & user.self & sys.self \\ [0.3ex]
-\hline 
+\hline
 mlKmeans(t(wine), 3) &         100&   0.028 &   1.000&     0.028  &  0.000\\
      kmeans(wine, 3)  &        100 &  0.947&   33.821 &    0.484 &   0.424\\[0.3ex]
 \hline %inserts single line
