@@ -42,7 +42,7 @@ Rcpp::List LARS(arma::mat& matX, arma::vec& vecY,
     lars.Train(matX, vecY, beta, false /* do not transpose */);
 
     arma::vec lmb = lars.LambdaPath();
-    arma::vec predictions;
+    arma::rowvec predictions;
     if (testX.isNotNull()) {
         arma::mat testset = Rcpp::as<arma::mat>(testX);
         if (testset.n_cols != lars.BetaPath().back().n_elem)

@@ -57,13 +57,10 @@ kMeans <- function(data, clusters) {
 #' and the predicted values, either from the training data or, if supplied, the test
 #' set.
 #' @examples
-#' \dontrun{
-#'   data(trainSet)
-#'   mat <- trainSet[, -5]
-#'   y <- trainSet[,5]
-#'   tst <- testSet[, -5]
-#'   res <- LARS(mat, y, tst, 0.5, 0.5)
-#' }
+#' ## LARS demo data set from MLPACK with limited rank
+#' data(lars)
+#' fit1 <- LARS(matX = lars_dependent_x, vecY = lars_dependent_y, 0.1, 0.1, FALSE)
+#' fit2 <- LARS(matX = lars_dependent_x, vecY = lars_dependent_y, 0.1, 0.1, TRUE)
 LARS <- function(matX, vecY, lambda1, lambda2, useCholesky = FALSE, testX = NULL) {
     .Call(`_RcppMLPACK_LARS`, matX, vecY, lambda1, lambda2, useCholesky, testX)
 }

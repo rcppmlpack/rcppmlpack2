@@ -4,6 +4,9 @@
 	* configire: Idem
 	* src/Makevars: Use $(SHLIB_OPENMP_CXXFLAGS) if available
 
+	* src/LARS.cpp (LARS): Predict() now wants a rowvector
+	* src/linearRegression.cpp (linearRegression): Idem
+
 2018-02-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* data/lars.RData: New data set from MLPACK

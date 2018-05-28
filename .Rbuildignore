@@ -8,3 +8,4 @@
 ^data/old
 ^LICENSE$
 ^.editorconfig$
+.*\.tar\.gz$
