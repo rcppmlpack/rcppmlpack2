@@ -5,7 +5,7 @@
 # require at least autoconf 2.61
 AC_PREREQ(2.61)
 
-AC_INIT([rcppmlpack], [2.1.0-1], [edd@debian.org])
+AC_INIT([rcppmlpack], [3.0.1-1], [edd@debian.org])
 
 ## Set R_HOME, respecting an environment variable if one is set
 : ${R_HOME=$(R RHOME)}

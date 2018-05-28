@@ -3,7 +3,7 @@
 #include <RcppMLPACK.h>				// MLPACK, Rcpp and RcppArmadillo
 
 // particular algorithm used here
-#include <mlpack/methods/logistic_regression/logistic_regression.hpp> 	
+#include <mlpack/methods/logistic_regression/logistic_regression.hpp>
 
 //' Run a Logistic Regression given training data (and optional test data).
 //'
@@ -13,7 +13,7 @@
 //'
 //' @title Run a Logistic Regression
 //' @param train A matrix of training data values
-//' @param labels An integer vector of target (class) labels, with the same 
+//' @param labels An integer vector of target (class) labels, with the same
 //'  length as the training data set
 //' @param test An optional test set, with the same number of columns as
 //'  the test set.
@@ -32,9 +32,8 @@
 Rcpp::List logisticRegression(const arma::mat& train,
                               const arma::irowvec& labels,
                               const Rcpp::Nullable<Rcpp::NumericMatrix>& test = R_NilValue) {
-    
-    // MLPACK wants Row<size_t> which is an unsigned representation
-    // that R does not have
+
+    // MLPACK wants Row<size_t> which is an unsigned representation that R does not have
     arma::Row<size_t> labelsur, resultsur;
 
     // TODO: check that all values are non-negative
@@ -42,12 +41,14 @@ Rcpp::List logisticRegression(const arma::mat& train,
 
     // Initialize with the default arguments.
     // TODO: support more arguments>
+    train.print("train");
+    labelsur.print("labels");
     mlpack::regression::LogisticRegression<> lrc(train, labelsur);
-    
-    arma::vec parameters = lrc.Parameters();
+
+    arma::rowvec parameters = lrc.Parameters();
 
     Rcpp::List return_val;
-    
+
     if (test.isNotNull()) {
         arma::mat test2 = Rcpp::as<arma::mat>(test);
         lrc.Classify(test2, resultsur);

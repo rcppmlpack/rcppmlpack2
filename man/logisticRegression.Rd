@@ -9,7 +9,7 @@ logisticRegression(train, labels, test = NULL)
 \arguments{
 \item{train}{A matrix of training data values}
 
-\item{labels}{An integer vector of target (class) labels, with the same 
+\item{labels}{An integer vector of target (class) labels, with the same
 length as the training data set}
 
 \item{test}{An optional test set, with the same number of columns as

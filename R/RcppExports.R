@@ -92,7 +92,7 @@ linearRegression <- function(matX, vecY, lambda = 0.0, intercept = TRUE) {
 #'
 #' @title Run a Logistic Regression
 #' @param train A matrix of training data values
-#' @param labels An integer vector of target (class) labels, with the same 
+#' @param labels An integer vector of target (class) labels, with the same
 #'  length as the training data set
 #' @param test An optional test set, with the same number of columns as
 #'  the test set.
