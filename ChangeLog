@@ -7,6 +7,8 @@
 	* src/LARS.cpp (LARS): Predict() now wants a rowvector
 	* src/linearRegression.cpp (linearRegression): Idem
 
+	* .travis.yml: Use ubuntu-toolchain-r PPA for gcc-7 / g++-7
+
 2018-02-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* data/lars.RData: New data set from MLPACK
