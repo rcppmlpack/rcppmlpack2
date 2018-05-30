@@ -10,10 +10,13 @@ before_install:
   - curl -OLs https://eddelbuettel.github.io/r-travis/run.sh && chmod 0755 run.sh
   # add our launchpad repo which has (inter alia) the new mlpack 2.1.0
   - sudo add-apt-repository -y ppa:edd/misc
+  # load gcc-7 and make it default below
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - ./run.sh bootstrap
 
 install:
-  - ./run.sh install_aptget libmlpack-dev libboost-all-dev libboost-program-options-dev libboost-serialization-dev libarmadillo-dev r-cran-rcpp r-cran-rcpparmadillo r-cran-knitr
+  - ./run.sh install_aptget libmlpack-dev libboost-all-dev libboost-program-options-dev libboost-serialization-dev libarmadillo-dev r-cran-rcpp r-cran-rcpparmadillo r-cran-knitr gcc-7 g++-7 libgfortran-7-dev
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 
 script:
   - ./run.sh run_tests

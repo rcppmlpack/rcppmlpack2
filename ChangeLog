@@ -1,3 +1,22 @@
+2018-05-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/linearRegression.cpp (linearRegression): Another set of
+	transpose updates
+
+2018-05-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* configure.ac: Now also checks for OpenMP (for MLPACK 3.0.*)
+	* configire: Idem
+	* src/Makevars: Use $(SHLIB_OPENMP_CXXFLAGS) if available
+
+	* src/LARS.cpp (LARS): Predict() now wants a rowvector; and Train()
+	needs a transpose
+	* src/linearRegression.cpp (linearRegression): Idem on rowvector
+	* src/logisticRegression.cpp (logisticRegression): Result is now a
+	rowvector
+
+	* .travis.yml: Use ubuntu-toolchain-r PPA for gcc-7 / g++-7
+
 2018-02-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* data/lars.RData: New data set from MLPACK

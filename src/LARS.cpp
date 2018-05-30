@@ -39,10 +39,10 @@ Rcpp::List LARS(arma::mat& matX, arma::vec& vecY,
         Rcpp::stop("Number of responses must be equal to number of rows of X!");
 
     arma::vec beta;
-    lars.Train(matX, vecY, beta, false /* do not transpose */);
+    lars.Train(matX, vecY.t(), beta, false /* do not transpose */);
 
     arma::vec lmb = lars.LambdaPath();
-    arma::vec predictions;
+    arma::rowvec predictions;
     if (testX.isNotNull()) {
         arma::mat testset = Rcpp::as<arma::mat>(testX);
         if (testset.n_cols != lars.BetaPath().back().n_elem)
