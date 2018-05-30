@@ -17,7 +17,15 @@
 //' @param intercept An optional boolean switch about an intercept, default is true.
 //' @return A vector with fitted values
 //' @examples
-//'   # tbd
+//' suppressMessages(library(utils))
+//' data("trees", package="datasets")
+//' X <- with(trees, cbind(log(Girth), log(Height)))
+//' y <- with(trees, log(Volume))
+//' lmfit <- lm(y ~ X)
+//' # summary(fitted(lmfit))
+//' mlfit <- linearRegression(X, y)
+//' # summary(mlfit)
+//' all.equal(unname(fitted(lmfit)),  as.vector(mlfit))
 // [[Rcpp::export]]
 arma::vec linearRegression(arma::mat& matX,
                            arma::vec& vecY,

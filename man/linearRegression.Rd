@@ -28,5 +28,13 @@ This function performs a linear regression, and serves as a simple
 test case for accessing an MLPACK function.
 }
 \examples{
-  # tbd
+suppressMessages(library(utils))
+data("trees", package="datasets")
+X <- with(trees, cbind(log(Girth), log(Height)))
+y <- with(trees, log(Volume))
+lmfit <- lm(y ~ X)
+# summary(fitted(lmfit))
+mlfit <- linearRegression(X, y)
+# summary(mlfit)
+all.equal(unname(fitted(lmfit)),  as.vector(mlfit))
 }

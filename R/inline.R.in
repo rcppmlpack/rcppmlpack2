@@ -1,4 +1,4 @@
-## Copyright (C) 2017 -       Dirk Eddelbuettel
+## Copyright (C) 2017 - 2018  Dirk Eddelbuettel
 ##
 ## This file is part of RcppMLPACK.
 ##
@@ -49,12 +49,13 @@ inlineCxxPlugin <- function(...) {
     plugin <- Rcpp::Rcpp.plugin.maker(
         ## TODO: reflect $(pkg-config --cflags mlpack) as well?
         include.before = "#include <RcppMLPACK.h>",
-        libs           = sprintf("%s $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)", "@MLPACK_LIBS@"),
+        libs           = sprintf("%s $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)",
+                                 "@MLPACK_LIBS@ @OPENMP_FLAG@"),
         LinkingTo      = c("RcppArmadillo", "Rcpp", "BH", "RcppMLPACK"),
         package        = "RcppMLPACK"
     )
     settings <- plugin()
-    settings$env$PKG_CPPFLAGS <- "@MLPACK_CFLAGS@"
+    settings$env$PKG_CPPFLAGS <- "@MLPACK_CFLAGS@ @OPENMP_FLAG@"
     settings$configure <- readLines(system.file("skeleton", "configure", package="RcppMLPACK"))
     settings$configure.win <- readLines(system.file("skeleton", "configure.win",
                                                     package="RcppMLPACK"))
