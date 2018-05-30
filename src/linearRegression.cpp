@@ -24,11 +24,9 @@ arma::vec linearRegression(arma::mat& matX,
                            const double lambda = 0.0,
                            const bool intercept = true) {
 
-    //matX.print("X");
     matX = matX.t();
-    mlpack::regression::LinearRegression lr(matX, vecY, lambda, intercept);
-
+    mlpack::regression::LinearRegression lr(matX, vecY.t(), lambda, intercept);
     arma::rowvec fittedValues(vecY.n_elem);
     lr.Predict(matX,  fittedValues);
-    return fittedValues;
+    return fittedValues.t();
 }

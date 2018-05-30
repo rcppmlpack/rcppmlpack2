@@ -1,3 +1,8 @@
+2018-05-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/linearRegression.cpp (linearRegression): Another set of
+	transpose updates
+
 2018-05-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* configure.ac: Now also checks for OpenMP (for MLPACK 3.0.*)
