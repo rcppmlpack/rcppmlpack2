@@ -1,3 +1,7 @@
+2018-09-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* docker/Dockerfile: Adding Dockerfile for Travis CI use
+
 2018-05-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/inline.R.in (inlineCxxPlugin): Use OpenMP where available
