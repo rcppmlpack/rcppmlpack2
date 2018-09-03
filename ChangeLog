@@ -2,6 +2,8 @@
 
 	* docker/Dockerfile: Adding Dockerfile for Travis CI use
 
+	* .travis.yml: Run using Docker container
+
 2018-05-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/inline.R.in (inlineCxxPlugin): Use OpenMP where available
