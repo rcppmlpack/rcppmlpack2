@@ -2,6 +2,8 @@
 
 	* docker/ci/Dockerfile: Moved Dockerfile to docker/ci/
 
+	* docker/run/Dockerfile: Added deployment Dockerfile
+
 2018-09-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* docker/Dockerfile: Adding Dockerfile for Travis CI use
