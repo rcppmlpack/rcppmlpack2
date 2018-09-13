@@ -87,6 +87,20 @@ This package, however, uses the external [mlpack](http://www.mlpack.org/) librar
 We have successfully used version 2.1.0 (with a patch, see below), version 2.1.1,
 version 2.2.0, and now version 3.0.1.
 
+#### Using Docker
+
+We use [Docker](https://www.docker.com) for the [Travis CI](https://www.travis-ci.org) tests, and also provide a container
+for deployment. Do 
+
+```sh
+docker pull rcppmlpack/run                 ## one time 
+docker run --rm -ti rcppmlpack/run bash    ## launch container
+```
+
+to start the container with `RcppMLPACK` installed.  See the 
+[Boettiger and Eddelbuettel RJournal paper](https://journal.r-project.org/archive/2017/RJ-2017-065/index.html)
+for more on Docker for R, and the [Rocker Project](https://www.rocker-project.org) used here.
+
 #### Debian
 
 Thanks to Barak Pearlmutter, there is an excellent
