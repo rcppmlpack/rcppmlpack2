@@ -1,9 +1,13 @@
-## RcppMLPACK2 [![Build Status](https://travis-ci.org/rcppmlpack/rcppmlpack2.svg)](https://travis-ci.org/rcppmlpack/rcppmlpack2) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+## RcppMLPACK2: Rcpp bindings for mlpack 3.*
+
+[![Build Status](https://travis-ci.org/rcppmlpack/rcppmlpack2.svg)](https://travis-ci.org/rcppmlpack/rcppmlpack2)
+[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 
 
-Rcpp bindings for mlpack 3.*
 
-### Experimental
+### Experimental -- And now outdated !!
+
+**2020/2021 Update:** Thanks to most excellent and persistent work of [Yashwant Singh](https://github.com/Yashwants19) over the course of Google Summer of Code 2020 (and, actually, both _preceeding_ it and _continuing after_) along with a few others, R is now a first-class citizen in mlpack. See [this directory in the mlpack repo](https://github.com/mlpack/mlpack/tree/master/src/mlpack/bindings/R) for its source, and see [this page at CRAN](http://cloud.r-project.org/package=mlpack) for the resulting R package. The original README.md content below does not reflect this---but you can more or less ignore this repo now.
 
 This is a more experimental version derived off
 [Qiang Kou](https://www.linkedin.com/pub/qiang-kou/2a/986/6b7)'s excellent
@@ -90,14 +94,14 @@ version 2.2.0, and now version 3.0.1.
 #### Using Docker
 
 We use [Docker](https://www.docker.com) for the [Travis CI](https://www.travis-ci.org) tests, and also provide a container
-for deployment. Do 
+for deployment. Do
 
 ```sh
-docker pull rcppmlpack/run                 ## one time 
+docker pull rcppmlpack/run                 ## one time
 docker run --rm -ti rcppmlpack/run bash    ## launch container
 ```
 
-to start the container with `RcppMLPACK` installed.  See the 
+to start the container with `RcppMLPACK` installed.  See the
 [Boettiger and Eddelbuettel RJournal paper](https://journal.r-project.org/archive/2017/RJ-2017-065/index.html)
 for more on Docker for R, and the [Rocker Project](https://www.rocker-project.org) used here.
 
